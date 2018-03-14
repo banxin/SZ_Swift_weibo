@@ -36,6 +36,25 @@ extension SZDemoViewController {
         super.setupUI()
         
         // 设置右侧的控制器
-        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "下一个", style: .plain, target: self, action: #selector(showNext))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "下一个", style: .plain, target: self, action: #selector(showNext))
+        
+//        let btn = UIButton.init(title: "下一个", fontSize: 16, normalColor: UIColor.darkGray, highlightColor: UIColor.orange)
+//
+//        btn.addTarget(self, action: #selector(showNext), for: .touchUpInside)
+//
+//        navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: btn)
+        
+        // 使用抽取后的 UIBarButtonItem 的便利构造函数，简化代码
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", target: self, action: #selector(showNext))
     }
 }
+
+
+
+
+
+
+
+
+
+
