@@ -99,6 +99,16 @@ extension WBBaseViewController {
         setupNavigationBar()
         
         userLogon ? setupTableView() : setupVistorView()
+        
+        // 测试调用OC代码
+//        let alert = YTAlertController.init(title: "测试", message: "看看是不是调用OC成功了", preferredStyle: .alert)
+//
+//        alert.addAction(YTAlertAction.init(title: "取消", style: .cancel, handler: { (_) in
+//
+//            print("cancel")
+//        }))
+//
+//        present(alert, animated: true, completion: nil)
     }
     
     /// 设置表格视图

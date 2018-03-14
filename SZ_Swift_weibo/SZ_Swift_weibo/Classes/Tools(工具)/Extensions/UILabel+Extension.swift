@@ -19,6 +19,7 @@ extension UILabel {
     /// - returns: UILabel
     /// 参数后面的值是参数的默认值，如果不传递，就使用默认值
     convenience init(title: String, fontSize: CGFloat = 14, color: UIColor = UIColor.darkGray) {
+        
         self.init()
         
         text = title

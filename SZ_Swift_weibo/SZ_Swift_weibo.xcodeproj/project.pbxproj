@@ -28,6 +28,10 @@
 		A9DE6D2E2058FEBA00EF2D28 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D1D2058FEBA00EF2D28 /* UIScreen+Extension.swift */; };
 		A9DE6D2F2058FEBA00EF2D28 /* Bundle+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D1E2058FEBA00EF2D28 /* Bundle+Extentions.swift */; };
 		A9DE6D302058FEBA00EF2D28 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D1F2058FEBA00EF2D28 /* UIBarButtonItem+Extension.swift */; };
+		A9DE6D3E20590AB600EF2D28 /* UIView+YTAddClickedEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D3520590AB600EF2D28 /* UIView+YTAddClickedEvent.m */; };
+		A9DE6D3F20590AB600EF2D28 /* UIAlertAction+YTDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D3820590AB600EF2D28 /* UIAlertAction+YTDefine.m */; };
+		A9DE6D4020590AB600EF2D28 /* YTAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D3B20590AB600EF2D28 /* YTAlertController.m */; };
+		A9DE6D4120590AB600EF2D28 /* UIAlertController+YTDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D3C20590AB600EF2D28 /* UIAlertController+YTDefine.m */; };
 		C644F6D3B56DD438B09804AB /* Pods_SZ_Swift_weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC85891CE8BB1D18DA334C38 /* Pods_SZ_Swift_weibo.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +82,15 @@
 		A9DE6D1D2058FEBA00EF2D28 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 		A9DE6D1E2058FEBA00EF2D28 /* Bundle+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extentions.swift"; sourceTree = "<group>"; };
 		A9DE6D1F2058FEBA00EF2D28 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		A9DE6D33205909E200EF2D28 /* Weibo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weibo-Bridge.h"; sourceTree = "<group>"; };
+		A9DE6D3520590AB600EF2D28 /* UIView+YTAddClickedEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YTAddClickedEvent.m"; sourceTree = "<group>"; };
+		A9DE6D3720590AB600EF2D28 /* YTAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTAlertController.h; sourceTree = "<group>"; };
+		A9DE6D3820590AB600EF2D28 /* UIAlertAction+YTDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertAction+YTDefine.m"; sourceTree = "<group>"; };
+		A9DE6D3920590AB600EF2D28 /* UIAlertController+YTDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+YTDefine.h"; sourceTree = "<group>"; };
+		A9DE6D3A20590AB600EF2D28 /* UIAlertAction+YTDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertAction+YTDefine.h"; sourceTree = "<group>"; };
+		A9DE6D3B20590AB600EF2D28 /* YTAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTAlertController.m; sourceTree = "<group>"; };
+		A9DE6D3C20590AB600EF2D28 /* UIAlertController+YTDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+YTDefine.m"; sourceTree = "<group>"; };
+		A9DE6D3D20590AB600EF2D28 /* UIView+YTAddClickedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YTAddClickedEvent.h"; sourceTree = "<group>"; };
 		CC85891CE8BB1D18DA334C38 /* Pods_SZ_Swift_weibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SZ_Swift_weibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -143,6 +156,7 @@
 			children = (
 				A9DE6D012058FEBA00EF2D28 /* Classes */,
 				A9DE6CD32058F62000EF2D28 /* AppDelegate.swift */,
+				A9DE6D33205909E200EF2D28 /* Weibo-Bridge.h */,
 				A9DE6CDA2058F62000EF2D28 /* Assets.xcassets */,
 				A9DE6CDF2058F62000EF2D28 /* Info.plist */,
 			);
@@ -253,8 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				A9DE6D122058FEBA00EF2D28 /* WBMainViewController.swift */,
-				A9DE6D132058FEBA00EF2D28 /* main.json */,
 				A9DE6D142058FEBA00EF2D28 /* WBNavigationController.swift */,
+				A9DE6D132058FEBA00EF2D28 /* main.json */,
 			);
 			path = "主控制器";
 			sourceTree = "<group>";
@@ -276,6 +290,7 @@
 		A9DE6D172058FEBA00EF2D28 /* Tools(工具) */ = {
 			isa = PBXGroup;
 			children = (
+				A9DE6D3420590AB600EF2D28 /* OCFiles */,
 				A9DE6D182058FEBA00EF2D28 /* Extensions */,
 			);
 			path = "Tools(工具)";
@@ -293,6 +308,29 @@
 				A9DE6D1F2058FEBA00EF2D28 /* UIBarButtonItem+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A9DE6D3420590AB600EF2D28 /* OCFiles */ = {
+			isa = PBXGroup;
+			children = (
+				A9DE6D3D20590AB600EF2D28 /* UIView+YTAddClickedEvent.h */,
+				A9DE6D3520590AB600EF2D28 /* UIView+YTAddClickedEvent.m */,
+				A9DE6D3620590AB600EF2D28 /* YTAlertViewController */,
+			);
+			path = OCFiles;
+			sourceTree = "<group>";
+		};
+		A9DE6D3620590AB600EF2D28 /* YTAlertViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A9DE6D3720590AB600EF2D28 /* YTAlertController.h */,
+				A9DE6D3B20590AB600EF2D28 /* YTAlertController.m */,
+				A9DE6D3A20590AB600EF2D28 /* UIAlertAction+YTDefine.h */,
+				A9DE6D3820590AB600EF2D28 /* UIAlertAction+YTDefine.m */,
+				A9DE6D3920590AB600EF2D28 /* UIAlertController+YTDefine.h */,
+				A9DE6D3C20590AB600EF2D28 /* UIAlertController+YTDefine.m */,
+			);
+			path = YTAlertViewController;
 			sourceTree = "<group>";
 		};
 		FA46BE00F7916D52F768913F /* Frameworks */ = {
@@ -368,7 +406,7 @@
 		A9DE6CC82058F62000EF2D28 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = SZ;
+				CLASSPREFIX = WB;
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = yanl;
@@ -498,15 +536,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9DE6D3F20590AB600EF2D28 /* UIAlertAction+YTDefine.m in Sources */,
 				A9DE6D252058FEBA00EF2D28 /* WBBaseViewController.swift in Sources */,
 				A9DE6D242058FEBA00EF2D28 /* WBVistorView.swift in Sources */,
 				A9DE6D2C2058FEBA00EF2D28 /* UIButton+Extension.swift in Sources */,
 				A9DE6D262058FEBA00EF2D28 /* WBDemoViewController.swift in Sources */,
 				A9DE6D202058FEBA00EF2D28 /* WBHomeViewController.swift in Sources */,
 				A9DE6D222058FEBA00EF2D28 /* WBMessageViewController.swift in Sources */,
+				A9DE6D4020590AB600EF2D28 /* YTAlertController.m in Sources */,
 				A9DE6D272058FEBA00EF2D28 /* WBMainViewController.swift in Sources */,
 				A9DE6CD42058F62000EF2D28 /* AppDelegate.swift in Sources */,
 				A9DE6D2F2058FEBA00EF2D28 /* Bundle+Extentions.swift in Sources */,
+				A9DE6D4120590AB600EF2D28 /* UIAlertController+YTDefine.m in Sources */,
 				A9DE6D2A2058FEBA00EF2D28 /* UIImageView+Extension.swift in Sources */,
 				A9DE6D2B2058FEBA00EF2D28 /* UILabel+Extension.swift in Sources */,
 				A9DE6D212058FEBA00EF2D28 /* WBDiscoverViewController.swift in Sources */,
@@ -514,6 +555,7 @@
 				A9DE6D2D2058FEBA00EF2D28 /* UIColor+Extensions.swift in Sources */,
 				A9DE6D292058FEBA00EF2D28 /* WBNavigationController.swift in Sources */,
 				A9DE6D232058FEBA00EF2D28 /* WBProfileViewController.swift in Sources */,
+				A9DE6D3E20590AB600EF2D28 /* UIView+YTAddClickedEvent.m in Sources */,
 				A9DE6D302058FEBA00EF2D28 /* UIBarButtonItem+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -669,6 +711,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.langyan.hbfs.SZ-Swift-weibo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SZ_Swift_weibo/Weibo-Bridge.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -686,6 +729,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.langyan.hbfs.SZ-Swift-weibo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SZ_Swift_weibo/Weibo-Bridge.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

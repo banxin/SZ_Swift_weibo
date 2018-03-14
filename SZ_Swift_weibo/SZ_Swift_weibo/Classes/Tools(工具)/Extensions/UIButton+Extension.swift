@@ -17,6 +17,7 @@ extension UIButton {
     ///
     /// - returns: UIButton
     convenience init(imageName: String, backImageName: String) {
+        
         self.init()
         
         setImage(UIImage(named: imageName), for: .normal)
@@ -36,6 +37,7 @@ extension UIButton {
     ///
     /// - returns: UIButton
     convenience init(title: String, color: UIColor, imageName: String) {
+        
         self.init()
         
         setTitle(title, for: .normal)
