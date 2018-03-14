@@ -45,7 +45,10 @@ extension SZDemoViewController {
 //        navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: btn)
         
         // 使用抽取后的 UIBarButtonItem 的便利构造函数，简化代码
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", target: self, action: #selector(showNext))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", target: self, action: #selector(showNext))
+        
+        // 使用自定义的 navigationItem 设置左侧按钮
+        navItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", target: self, action: #selector(showNext))
     }
 }
 

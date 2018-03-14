@@ -54,7 +54,10 @@ extension SZHomeViewController {
 //        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: btn)
         
         // 使用抽取后的 UIBarButtonItem 的便利构造函数，简化代码
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriends))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriends))
+        
+        // 使用自定义的 navigationItem 设置左侧按钮
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriends))
     }
 }
 

@@ -48,7 +48,7 @@ class WBNavigationController: UINavigationController {
         super.pushViewController(viewController, animated: animated)
     }
     
-    // 返回上一级
+    // pop 返回上一级控制器
     @objc private func popToback() {
         
         popViewController(animated: true)
