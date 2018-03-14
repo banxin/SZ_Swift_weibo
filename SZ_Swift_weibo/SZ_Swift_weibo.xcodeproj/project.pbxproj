@@ -32,6 +32,14 @@
 		A9DE6D3F20590AB600EF2D28 /* UIAlertAction+YTDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D3820590AB600EF2D28 /* UIAlertAction+YTDefine.m */; };
 		A9DE6D4020590AB600EF2D28 /* YTAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D3B20590AB600EF2D28 /* YTAlertController.m */; };
 		A9DE6D4120590AB600EF2D28 /* UIAlertController+YTDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D3C20590AB600EF2D28 /* UIAlertController+YTDefine.m */; };
+		A9DE6D4320590DE800EF2D28 /* SZMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D4220590DE800EF2D28 /* SZMainViewController.swift */; };
+		A9DE6D452059146000EF2D28 /* SZNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D442059146000EF2D28 /* SZNavigationController.swift */; };
+		A9DE6D472059150D00EF2D28 /* SZBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D462059150D00EF2D28 /* SZBaseViewController.swift */; };
+		A9DE6D492059153400EF2D28 /* SZProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D482059153400EF2D28 /* SZProfileViewController.swift */; };
+		A9DE6D4B2059154D00EF2D28 /* SZMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D4A2059154D00EF2D28 /* SZMessageViewController.swift */; };
+		A9DE6D4D2059155D00EF2D28 /* SZDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D4C2059155D00EF2D28 /* SZDiscoverViewController.swift */; };
+		A9DE6D4F2059156B00EF2D28 /* SZHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D4E2059156B00EF2D28 /* SZHomeViewController.swift */; };
+		A9DE6D512059455200EF2D28 /* SZDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D502059455200EF2D28 /* SZDemoViewController.swift */; };
 		C644F6D3B56DD438B09804AB /* Pods_SZ_Swift_weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC85891CE8BB1D18DA334C38 /* Pods_SZ_Swift_weibo.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +99,14 @@
 		A9DE6D3B20590AB600EF2D28 /* YTAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTAlertController.m; sourceTree = "<group>"; };
 		A9DE6D3C20590AB600EF2D28 /* UIAlertController+YTDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+YTDefine.m"; sourceTree = "<group>"; };
 		A9DE6D3D20590AB600EF2D28 /* UIView+YTAddClickedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YTAddClickedEvent.h"; sourceTree = "<group>"; };
+		A9DE6D4220590DE800EF2D28 /* SZMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZMainViewController.swift; sourceTree = "<group>"; };
+		A9DE6D442059146000EF2D28 /* SZNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZNavigationController.swift; sourceTree = "<group>"; };
+		A9DE6D462059150D00EF2D28 /* SZBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZBaseViewController.swift; sourceTree = "<group>"; };
+		A9DE6D482059153400EF2D28 /* SZProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZProfileViewController.swift; sourceTree = "<group>"; };
+		A9DE6D4A2059154D00EF2D28 /* SZMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZMessageViewController.swift; sourceTree = "<group>"; };
+		A9DE6D4C2059155D00EF2D28 /* SZDiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZDiscoverViewController.swift; sourceTree = "<group>"; };
+		A9DE6D4E2059156B00EF2D28 /* SZHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZHomeViewController.swift; sourceTree = "<group>"; };
+		A9DE6D502059455200EF2D28 /* SZDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZDemoViewController.swift; sourceTree = "<group>"; };
 		CC85891CE8BB1D18DA334C38 /* Pods_SZ_Swift_weibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SZ_Swift_weibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -208,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				A9DE6D042058FEBA00EF2D28 /* WBHomeViewController.swift */,
+				A9DE6D4E2059156B00EF2D28 /* SZHomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -216,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				A9DE6D062058FEBA00EF2D28 /* WBDiscoverViewController.swift */,
+				A9DE6D4C2059155D00EF2D28 /* SZDiscoverViewController.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -224,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				A9DE6D082058FEBA00EF2D28 /* WBMessageViewController.swift */,
+				A9DE6D4A2059154D00EF2D28 /* SZMessageViewController.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -232,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				A9DE6D0A2058FEBA00EF2D28 /* WBProfileViewController.swift */,
+				A9DE6D482059153400EF2D28 /* SZProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -240,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				A9DE6D0E2058FEBA00EF2D28 /* WBBaseViewController.swift */,
+				A9DE6D462059150D00EF2D28 /* SZBaseViewController.swift */,
 				A9DE6D0C2058FEBA00EF2D28 /* VistorView */,
 				A9DE6D0F2058FEBA00EF2D28 /* 测试 */,
 				A9DE6D112058FEBA00EF2D28 /* 主控制器 */,
@@ -259,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				A9DE6D102058FEBA00EF2D28 /* WBDemoViewController.swift */,
+				A9DE6D502059455200EF2D28 /* SZDemoViewController.swift */,
 			);
 			path = "测试";
 			sourceTree = "<group>";
@@ -267,7 +289,9 @@
 			isa = PBXGroup;
 			children = (
 				A9DE6D122058FEBA00EF2D28 /* WBMainViewController.swift */,
+				A9DE6D4220590DE800EF2D28 /* SZMainViewController.swift */,
 				A9DE6D142058FEBA00EF2D28 /* WBNavigationController.swift */,
+				A9DE6D442059146000EF2D28 /* SZNavigationController.swift */,
 				A9DE6D132058FEBA00EF2D28 /* main.json */,
 			);
 			path = "主控制器";
@@ -406,7 +430,7 @@
 		A9DE6CC82058F62000EF2D28 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = WB;
+				CLASSPREFIX = SZ;
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = yanl;
@@ -539,23 +563,31 @@
 				A9DE6D3F20590AB600EF2D28 /* UIAlertAction+YTDefine.m in Sources */,
 				A9DE6D252058FEBA00EF2D28 /* WBBaseViewController.swift in Sources */,
 				A9DE6D242058FEBA00EF2D28 /* WBVistorView.swift in Sources */,
+				A9DE6D452059146000EF2D28 /* SZNavigationController.swift in Sources */,
+				A9DE6D472059150D00EF2D28 /* SZBaseViewController.swift in Sources */,
 				A9DE6D2C2058FEBA00EF2D28 /* UIButton+Extension.swift in Sources */,
 				A9DE6D262058FEBA00EF2D28 /* WBDemoViewController.swift in Sources */,
 				A9DE6D202058FEBA00EF2D28 /* WBHomeViewController.swift in Sources */,
 				A9DE6D222058FEBA00EF2D28 /* WBMessageViewController.swift in Sources */,
 				A9DE6D4020590AB600EF2D28 /* YTAlertController.m in Sources */,
+				A9DE6D4F2059156B00EF2D28 /* SZHomeViewController.swift in Sources */,
 				A9DE6D272058FEBA00EF2D28 /* WBMainViewController.swift in Sources */,
 				A9DE6CD42058F62000EF2D28 /* AppDelegate.swift in Sources */,
+				A9DE6D4320590DE800EF2D28 /* SZMainViewController.swift in Sources */,
+				A9DE6D4D2059155D00EF2D28 /* SZDiscoverViewController.swift in Sources */,
 				A9DE6D2F2058FEBA00EF2D28 /* Bundle+Extentions.swift in Sources */,
 				A9DE6D4120590AB600EF2D28 /* UIAlertController+YTDefine.m in Sources */,
+				A9DE6D4B2059154D00EF2D28 /* SZMessageViewController.swift in Sources */,
 				A9DE6D2A2058FEBA00EF2D28 /* UIImageView+Extension.swift in Sources */,
 				A9DE6D2B2058FEBA00EF2D28 /* UILabel+Extension.swift in Sources */,
 				A9DE6D212058FEBA00EF2D28 /* WBDiscoverViewController.swift in Sources */,
+				A9DE6D492059153400EF2D28 /* SZProfileViewController.swift in Sources */,
 				A9DE6D2E2058FEBA00EF2D28 /* UIScreen+Extension.swift in Sources */,
 				A9DE6D2D2058FEBA00EF2D28 /* UIColor+Extensions.swift in Sources */,
 				A9DE6D292058FEBA00EF2D28 /* WBNavigationController.swift in Sources */,
 				A9DE6D232058FEBA00EF2D28 /* WBProfileViewController.swift in Sources */,
 				A9DE6D3E20590AB600EF2D28 /* UIView+YTAddClickedEvent.m in Sources */,
+				A9DE6D512059455200EF2D28 /* SZDemoViewController.swift in Sources */,
 				A9DE6D302058FEBA00EF2D28 /* UIBarButtonItem+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

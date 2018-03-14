@@ -71,6 +71,7 @@ extension WBMainViewController {
         // 计算按钮的宽度
         let count = CGFloat(childViewControllers.count)
         
+        // 将向内缩进的宽度减少，能够让按钮的宽度变大，盖住容错点，防止点击到tabbar的中间Item
         // -1 遮挡系统的左右容错点，避免遮挡不住中间的tabbar item
         let w = tabBar.bounds.width / count - 1
         
