@@ -1,18 +1,18 @@
 //
-//  WBVistorView.swift
-//  传智微博
+//  SZVistorView.swift
+//  SZ_Swift_weibo
 //
-//  Created by yanl on 2017/11/16.
-//  Copyright © 2017年 yanl. All rights reserved.
+//  Created by yanl on 2018/3/15.
+//  Copyright © 2018年 yanl. All rights reserved.
 //
 
 import UIKit
 
 /// 访客视图
-class WBVistorView: UIView {
-
-    // 访客视图的信息字典
-    // 提示：如果是首页，imageName = “”,
+class SZVistorView: UIView {
+    
+    /// 访客视图的信息字典 [imageName / message]
+    /// 提示：如果是首页，imageName = ""
     var vistorInfo: [String: String]? {
         
         didSet {
@@ -35,11 +35,13 @@ class WBVistorView: UIView {
             }
             
             iconView.image = UIImage.init(named: imageName)
+            
+            // 其他控制器不需要显示 小房子图片 / 遮罩图片
             houseIconView.isHidden = true
             iconMaskView.isHidden = true
         }
     }
-    
+
     // MARK: - 构造函数
     override init(frame: CGRect) {
         
@@ -49,11 +51,12 @@ class WBVistorView: UIView {
     }
     
     required init?(coder aDecoder: NSCoder) {
+        
         fatalError("init(coder:) has not been implemented")
     }
     
     /// 首页访客视图图标旋转动画
-    private func startAnimation () {
+    private func startAnimation() {
         
         let animation = CABasicAnimation(keyPath: "transform.rotation")
         
@@ -67,6 +70,35 @@ class WBVistorView: UIView {
         iconView.layer.add(animation, forKey: nil)
     }
     
+    // MARK: - 设置访客视图的信息（以字典的方式）--- 使用属性进行替代，重写set方法
+    /// 使用字典设置访客视图的信息
+    ///
+    /// - Parameter dict: ["imageName": "图片", "message": "提示语"]
+    /// 提示：如果是首页，imageName = ""
+//    func setupInfo(dict: [String: String]) {
+//
+//        // 1> 取字典信息
+//        guard let imageName = dict["imageName"], let message = dict["message"] else {
+//
+//            return
+//        }
+//
+//        // 2> 设置消息
+//        tipLabel.text = message
+//
+//        // 3> 设置图像，首页不需要设置
+//        if imageName == "" {
+//
+//            startAnimation()
+//
+//            return
+//        }
+//
+//        iconView.image = UIImage.init(named: imageName)
+//        houseIconView.isHidden = true
+//        iconMaskView.isHidden = true
+//    }
+    
     // MARK: - 私有控件
     /*
      懒加载属性细节：
@@ -76,7 +108,7 @@ class WBVistorView: UIView {
     // 图像视图
     private lazy var iconView: UIImageView = UIImageView.init(image: UIImage.init(named: "visitordiscover_feed_image_smallicon"))
     
-    // 遮罩视图
+    // 遮罩视图 - 不要使用maskView，与系统重名了
     private lazy var iconMaskView: UIImageView = UIImageView.init(image: UIImage.init(named: "visitordiscover_feed_mask_smallicon"))
     
     // 小房子
@@ -84,29 +116,29 @@ class WBVistorView: UIView {
     
     // 提示标签
     private lazy var tipLabel: UILabel = UILabel.init(
-        title   : "关注一些人，回这里看看有没有什么惊喜关注一些人，回这里看看有没有什么惊喜",
+        title: "关注一些人，回这里看看有没有什么惊喜关注一些人，回这里看看有没有什么惊喜",
         fontSize: 14,
-        color   : UIColor.darkGray)
+        color: UIColor.darkGray)
     
     // 注册按钮
     private lazy var registerBtn: UIButton = UIButton.init(
-        title         : "注册",
-        fontSize      : 16,
-        normalColor   : UIColor.orange,
+        title: "注册",
+        fontSize: 16,
+        normalColor: UIColor.orange,
         highlightColor: UIColor.black,
-        backImageName : "common_button_white_disable")
+        backImageName: "common_button_white_disable")
     
     // 登录按钮
     private lazy var loginBtn: UIButton = UIButton.init(
-        title         : "登录",
-        fontSize      : 16,
-        normalColor   : UIColor.darkGray,
+        title: "登录",
+        fontSize: 16,
+        normalColor: UIColor.darkGray,
         highlightColor: UIColor.black,
-        backImageName : "common_button_white_disable")
+        backImageName: "common_button_white_disable")
 }
 
 // MARK: - 设置界面
-extension WBVistorView {
+extension SZVistorView {
     
     func setupUI() {
         
@@ -121,14 +153,11 @@ extension WBVistorView {
         addSubview(registerBtn)
         addSubview(loginBtn)
         
-        // 文本居中
-        tipLabel.textAlignment = .center
-        
         // 2.取消 autoresizing --> 使用 snapkit 不需要这一步
-//        for v in subviews {
-//
-//            v.translatesAutoresizingMaskIntoConstraints = false
-//        }
+        //        for v in subviews {
+        //
+        //            v.translatesAutoresizingMaskIntoConstraints = false
+        //        }
         
         // 3.自动布局
         // 1> 图像视图
@@ -176,3 +205,25 @@ extension WBVistorView {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

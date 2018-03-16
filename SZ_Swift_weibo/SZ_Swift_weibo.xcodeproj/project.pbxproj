@@ -40,6 +40,7 @@
 		A9DE6D4D2059155D00EF2D28 /* SZDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D4C2059155D00EF2D28 /* SZDiscoverViewController.swift */; };
 		A9DE6D4F2059156B00EF2D28 /* SZHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D4E2059156B00EF2D28 /* SZHomeViewController.swift */; };
 		A9DE6D512059455200EF2D28 /* SZDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D502059455200EF2D28 /* SZDemoViewController.swift */; };
+		A9DE6D53205A09C300EF2D28 /* SZVistorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D52205A09C300EF2D28 /* SZVistorView.swift */; };
 		C644F6D3B56DD438B09804AB /* Pods_SZ_Swift_weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC85891CE8BB1D18DA334C38 /* Pods_SZ_Swift_weibo.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,7 @@
 		A9DE6D4C2059155D00EF2D28 /* SZDiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZDiscoverViewController.swift; sourceTree = "<group>"; };
 		A9DE6D4E2059156B00EF2D28 /* SZHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZHomeViewController.swift; sourceTree = "<group>"; };
 		A9DE6D502059455200EF2D28 /* SZDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZDemoViewController.swift; sourceTree = "<group>"; };
+		A9DE6D52205A09C300EF2D28 /* SZVistorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZVistorView.swift; sourceTree = "<group>"; };
 		CC85891CE8BB1D18DA334C38 /* Pods_SZ_Swift_weibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SZ_Swift_weibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				A9DE6D0D2058FEBA00EF2D28 /* WBVistorView.swift */,
+				A9DE6D52205A09C300EF2D28 /* SZVistorView.swift */,
 			);
 			path = VistorView;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				A9DE6D202058FEBA00EF2D28 /* WBHomeViewController.swift in Sources */,
 				A9DE6D222058FEBA00EF2D28 /* WBMessageViewController.swift in Sources */,
 				A9DE6D4020590AB600EF2D28 /* YTAlertController.m in Sources */,
+				A9DE6D53205A09C300EF2D28 /* SZVistorView.swift in Sources */,
 				A9DE6D4F2059156B00EF2D28 /* SZHomeViewController.swift in Sources */,
 				A9DE6D272058FEBA00EF2D28 /* WBMainViewController.swift in Sources */,
 				A9DE6CD42058F62000EF2D28 /* AppDelegate.swift in Sources */,
