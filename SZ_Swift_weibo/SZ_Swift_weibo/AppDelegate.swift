@@ -23,13 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         
-        //        loadAppInfo()
+        // 调用模拟从服务器加载应用程序信息
+//        loadAppInfo()
         
         return true
     }
 }
 
-// MARK: - 从服务器加载应用程序信息
+// MARK: - 模拟从服务器加载应用程序信息
 extension AppDelegate {
     
     private func loadAppInfo() {
@@ -37,20 +38,21 @@ extension AppDelegate {
         // 1.模拟异步
         DispatchQueue.global().async {
             
-            // 1>.url
-            let url = "/Users/yanl/Movies/Practice Project/weibo/传智微博/传智微博/Classes/View(视图和控制器)/Main/主控制器/main.json"
+            // 1>. 获取 本地JSON文件 url
+            let url = Bundle.main.url(forResource: "main.json", withExtension: nil)
             
-            // 2> data
-            let data = try? String.init(contentsOfFile: url).data(using: .utf8)
-            
+            // 2> 将文件内容转换为 data
+            let data = NSData.init(contentsOf: url!)
+        
             // 3> 写入磁盘
+            // 取沙盒目录
             let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
             let jsonPath = (docDir as NSString).appendingPathComponent("main.json")
             
-            // /Users/yanl/Library/Developer/CoreSimulator/Devices/DE29EADC-0D0F-4329-96D0-F92DF9278426/data/Containers/Data/Application/701B38D3-6EAF-467B-9B4F-F67FB818079C/Documents/main.json
+//            /Users/yanl/Library/Developer/CoreSimulator/Devices/1243B032-91F5-4DD6-852C-4C15AE648457/data/Containers/Data/Application/591CE458-FA16-463A-AF3A-3CE1663C9709/Documents/main.json
             
             // 直接保存在沙盒，等待下一次程序启动使用
-            (data!! as NSData).write(toFile: jsonPath, atomically: true)
+            data?.write(toFile: jsonPath, atomically: true)
             
             print("应用程序加载完毕 \(jsonPath)")
         }

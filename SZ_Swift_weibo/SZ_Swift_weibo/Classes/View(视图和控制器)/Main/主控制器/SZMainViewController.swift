@@ -69,28 +69,68 @@ extension SZMainViewController {
     /// 设置所有子控制器
     private func setupChildControllers() {
         
-        // 现在很多的应用程序中，界面的创建都依赖网络的 JSON
-        let array: [[String: AnyObject]] = [
-
-            ["clsName": "SZHomeViewController" as AnyObject, "title": "首页" as AnyObject, "imageName": "home" as AnyObject, "vistorInfo": ["imageName": "", "message": "关注一些人，回这里看看有什么惊喜"]  as AnyObject],
-            ["clsName": "SZMessageViewController" as AnyObject, "title": "消息" as AnyObject, "imageName": "message_center" as AnyObject, "vistorInfo": ["imageName": "visitordiscover_image_message", "message": "登录后，别人评论你的微博，发给你的信息，都会在这里收到通知"]  as AnyObject],
-            ["clsName": "UIViewController" as AnyObject],
-            ["clsName": "SZDiscoverViewController" as AnyObject, "title": "发现" as AnyObject, "imageName": "discover" as AnyObject, "vistorInfo": ["imageName": "visitordiscover_image_message", "message": "登录后，最新、最热微博尽在掌握，不再会与实事潮流插肩而过"]  as AnyObject],
-            ["clsName": "SZProfileViewController" as AnyObject, "title": "我的" as AnyObject, "imageName": "profile" as AnyObject, "vistorInfo": ["imageName": "visitordiscover_image_profile", "message": "登录后，你的微博、相册、个人资料会显示在这里，展示给别人"]  as AnyObject]
-        ]
+        // 0.获取沙盒的 JSON 路径
+        let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let jsonPath = (docDir as NSString).appendingPathComponent("main.json")
         
-        // 写入沙盒
+        // 加载 data
+        var data = NSData.init(contentsOfFile: jsonPath)
+        
+        // 判断data是否有内容，如果不存在，说明本地沙盒没有文件
+        if (data == nil) {
+            
+            // 从Bundle加载 data
+            let path = Bundle.main.path(forResource: "main.json", ofType: nil)
+            
+            data = NSData.init(contentsOfFile: path!)
+        }
+        
+        // data 一定有值，反序列化
+        guard let array = try? JSONSerialization.jsonObject(with: data! as Data, options: []) as? [[String: AnyObject]]
+            else {
+                
+            return
+        }
+        
+//        // 从 bundle 加载配置的 JSON
+//        // 1.获取路径 2，加载 NSData，3，反序列化转换成数组
+//        guard let path = Bundle.main.path(forResource: "main.json", ofType: nil),
+//                let data = NSData.init(contentsOfFile: path),
+//                let array = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String: AnyObject]]
+//                else {
+//
+//            return
+//        }
+        
+//        // 现在很多的应用程序中，界面的创建都依赖网络的 JSON   ---  使用配置的JSON文件来加载配置
+//        let array: [[String: AnyObject]] = [
+//
+//            ["clsName": "SZHomeViewController" as AnyObject, "title": "首页" as AnyObject, "imageName": "home" as AnyObject, "vistorInfo": ["imageName": "", "message": "关注一些人，回这里看看有什么惊喜"]  as AnyObject],
+//            ["clsName": "SZMessageViewController" as AnyObject, "title": "消息" as AnyObject, "imageName": "message_center" as AnyObject, "vistorInfo": ["imageName": "visitordiscover_image_message", "message": "登录后，别人评论你的微博，发给你的信息，都会在这里收到通知"]  as AnyObject],
+//            ["clsName": "UIViewController" as AnyObject],
+//            ["clsName": "SZDiscoverViewController" as AnyObject, "title": "发现" as AnyObject, "imageName": "discover" as AnyObject, "vistorInfo": ["imageName": "visitordiscover_image_message", "message": "登录后，最新、最热微博尽在掌握，不再会与实事潮流插肩而过"]  as AnyObject],
+//            ["clsName": "SZProfileViewController" as AnyObject, "title": "我的" as AnyObject, "imageName": "profile" as AnyObject, "vistorInfo": ["imageName": "visitordiscover_image_profile", "message": "登录后，你的微博、相册、个人资料会显示在这里，展示给别人"]  as AnyObject]
+//        ]
+        
+        // 以 plist格式 写入沙盒
         // 测试数据是否正确，- 转换成plist，更加直观
 //        (array as NSArray).write(toFile: "/Users/yanl/Desktop/demo.plist", atomically: true)
         
+        // 数组 -> JSON 序列化
+        // 测试保存 JSON 文件 到 mac 桌面
+//        let data = try! JSONSerialization.data(withJSONObject: array, options: [.prettyPrinted])
+//
+//        (data as NSData).write(toFile: "/Users/yanl/Desktop/main.json", atomically: true)
+        
         var childVCArray = [UIViewController]()
         
-        for dict in array {
+        // 遍历数组，循环创建子控制器
+        for dict in array! {
             
             childVCArray.append(controller(dict: dict))
         }
         
-        // 设定tabbar的控制器
+        // 设置tabbar的子控制器
         viewControllers = childVCArray
     }
     

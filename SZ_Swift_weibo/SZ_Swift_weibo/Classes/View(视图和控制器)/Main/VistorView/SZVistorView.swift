@@ -63,7 +63,7 @@ class SZVistorView: UIView {
         animation.toValue = 2 * Double.pi
         animation.repeatCount = MAXFLOAT
         animation.duration = 15
-        // 动画完成不删除，如果iconView被销毁，动画会一起被删除
+        // 动画完成不删除，如果iconView被释放，动画会一起被销毁！
         // 在设置连续播放动画，非常有用
         animation.isRemovedOnCompletion = false
         
@@ -152,6 +152,9 @@ extension SZVistorView {
         addSubview(tipLabel)
         addSubview(registerBtn)
         addSubview(loginBtn)
+        
+        // 文本居中
+        tipLabel.textAlignment = .center
         
         // 2.取消 autoresizing --> 使用 snapkit 不需要这一步
         //        for v in subviews {

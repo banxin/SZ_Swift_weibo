@@ -41,6 +41,7 @@
 		A9DE6D4F2059156B00EF2D28 /* SZHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D4E2059156B00EF2D28 /* SZHomeViewController.swift */; };
 		A9DE6D512059455200EF2D28 /* SZDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D502059455200EF2D28 /* SZDemoViewController.swift */; };
 		A9DE6D53205A09C300EF2D28 /* SZVistorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D52205A09C300EF2D28 /* SZVistorView.swift */; };
+		A9DE6D54205BB3D200EF2D28 /* main.json in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6D132058FEBA00EF2D28 /* main.json */; };
 		C644F6D3B56DD438B09804AB /* Pods_SZ_Swift_weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC85891CE8BB1D18DA334C38 /* Pods_SZ_Swift_weibo.framework */; };
 /* End PBXBuildFile section */
 
@@ -563,6 +564,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9DE6D54205BB3D200EF2D28 /* main.json in Sources */,
 				A9DE6D3F20590AB600EF2D28 /* UIAlertAction+YTDefine.m in Sources */,
 				A9DE6D252058FEBA00EF2D28 /* WBBaseViewController.swift in Sources */,
 				A9DE6D242058FEBA00EF2D28 /* WBVistorView.swift in Sources */,
