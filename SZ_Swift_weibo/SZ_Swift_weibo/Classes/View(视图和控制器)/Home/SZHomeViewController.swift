@@ -95,26 +95,37 @@ extension SZHomeViewController {
 extension SZHomeViewController {
     
     /// 重写父类的方法
-    override func setupUI() {
-        
-        super.setupUI()
-        
-        // 设置左侧导航栏按钮
-        // 但是无法实现高亮
-//        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", style: .plain, target: self, action: #selector(showFriends))
-        
-        /*
-         !!! Swift 调用 OC 返回 instancetype 的方法，是判断不出是否可选的，所以需要加类型 例如：let btn: UIButton = xxxx
-         */
-        
-//        let btn = UIButton.init(title: "好友", fontSize: 16, normalColor: UIColor.darkGray, highlightColor: UIColor.orange)
+//    override func setupUI() {
 //
-//        btn.addTarget(self, action: #selector(showFriends), for: .touchUpInside)
+//        super.setupUI()
 //
-//        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: btn)
+//        // 设置左侧导航栏按钮
+//        // 但是无法实现高亮
+////        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "好友", style: .plain, target: self, action: #selector(showFriends))
+//
+//        /*
+//         !!! Swift 调用 OC 返回 instancetype 的方法，是判断不出是否可选的，所以需要加类型 例如：let btn: UIButton = xxxx
+//         */
+//
+////        let btn = UIButton.init(title: "好友", fontSize: 16, normalColor: UIColor.darkGray, highlightColor: UIColor.orange)
+////
+////        btn.addTarget(self, action: #selector(showFriends), for: .touchUpInside)
+////
+////        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: btn)
+//
+//        // 使用抽取后的 UIBarButtonItem 的便利构造函数，简化代码
+////        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriends))
+//
+//        // 使用自定义的 navigationItem 设置左侧按钮
+//        navItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriends))
+//
+//        // 注册原型 cell
+//        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+//    }
+    
+    override func setupTableView() {
         
-        // 使用抽取后的 UIBarButtonItem 的便利构造函数，简化代码
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriends))
+        super.setupTableView()
         
         // 使用自定义的 navigationItem 设置左侧按钮
         navItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriends))

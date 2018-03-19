@@ -11,6 +11,22 @@ import UIKit
 /// 访客视图
 class SZVistorView: UIView {
     
+    // 注册按钮
+    lazy var registerBtn: UIButton = UIButton.init(
+        title: "注册",
+        fontSize: 16,
+        normalColor: UIColor.orange,
+        highlightColor: UIColor.black,
+        backImageName: "common_button_white_disable")
+    
+    // 登录按钮
+    lazy var loginBtn: UIButton = UIButton.init(
+        title: "登录",
+        fontSize: 16,
+        normalColor: UIColor.darkGray,
+        highlightColor: UIColor.black,
+        backImageName: "common_button_white_disable")
+    
     /// 访客视图的信息字典 [imageName / message]
     /// 提示：如果是首页，imageName = ""
     var vistorInfo: [String: String]? {
@@ -120,21 +136,21 @@ class SZVistorView: UIView {
         fontSize: 14,
         color: UIColor.darkGray)
     
-    // 注册按钮
-    private lazy var registerBtn: UIButton = UIButton.init(
-        title: "注册",
-        fontSize: 16,
-        normalColor: UIColor.orange,
-        highlightColor: UIColor.black,
-        backImageName: "common_button_white_disable")
-    
-    // 登录按钮
-    private lazy var loginBtn: UIButton = UIButton.init(
-        title: "登录",
-        fontSize: 16,
-        normalColor: UIColor.darkGray,
-        highlightColor: UIColor.black,
-        backImageName: "common_button_white_disable")
+//    // 注册按钮
+//    private lazy var registerBtn: UIButton = UIButton.init(
+//        title: "注册",
+//        fontSize: 16,
+//        normalColor: UIColor.orange,
+//        highlightColor: UIColor.black,
+//        backImageName: "common_button_white_disable")
+//
+//    // 登录按钮
+//    private lazy var loginBtn: UIButton = UIButton.init(
+//        title: "登录",
+//        fontSize: 16,
+//        normalColor: UIColor.darkGray,
+//        highlightColor: UIColor.black,
+//        backImageName: "common_button_white_disable")
 }
 
 // MARK: - 设置界面

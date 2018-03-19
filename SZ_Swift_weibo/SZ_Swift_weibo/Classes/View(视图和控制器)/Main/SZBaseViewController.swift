@@ -74,11 +74,26 @@ class SZBaseViewController: UIViewController {
     }
 }
 
+// MARK: - 访客视图监听方法
+extension SZBaseViewController {
+    
+    @objc private func login() {
+        
+        print("login")
+    }
+    
+    @objc private func register() {
+        
+        print("register ")
+    }
+}
+
 // MARK: - 设置界面
 extension SZBaseViewController {
     
     // 如果子类需要重写该方法，必须使用 @objc dynamic 修饰，Swift 本身不支持 extension 中方法的重写，需要使用OC的机制曲线实现
-    @objc dynamic func setupUI() {
+//    @objc dynamic func setupUI() {
+    private func setupUI() {
         
         // 取消自动缩进，如果隐藏了导航栏，会缩进 20 个点
         automaticallyAdjustsScrollViewInsets = false
@@ -102,8 +117,9 @@ extension SZBaseViewController {
         //        present(alert, animated: true, completion: nil)
     }
     
-    /// 设置表格视图
-    private func setupTableView() {
+    /// 设置表格视图 - 用户登录之后执行
+    /// 子类重写此方法，因为子类不关心用户登录之前的逻辑
+   @objc dynamic func setupTableView() {
         
         tableView = UITableView.init(frame: view.bounds, style: .plain)
         
@@ -140,8 +156,16 @@ extension SZBaseViewController {
         
 //        print("访客视图 -> \(vistorView)")
         
-        // 设置访客视图信息
+        // 1. 设置访客视图信息
         vistorView.vistorInfo = vistorInfoDic
+        
+        // 2.添加访客视图按钮的监听方法
+        vistorView.loginBtn.addTarget(self, action: #selector(login), for: .touchUpInside)
+        vistorView.registerBtn.addTarget(self, action: #selector(register), for: .touchUpInside)
+        
+        // 3. 设置导航条按钮
+        navItem.leftBarButtonItem = UIBarButtonItem.init(title: "注册", style: .plain, target: self, action: #selector(register))
+        navItem.rightBarButtonItem = UIBarButtonItem.init(title: "登录", style: .plain, target: self, action: #selector(login))
     }
     
     /// 设置导航条
@@ -155,11 +179,14 @@ extension SZBaseViewController {
         // 将 item 设置给bar
         navigationBar.items = [navItem]
         
-        // 设置 navigationBar 渲染颜色
+        // 1> 设置 navigationBar 整个背景的渲染颜色
         navigationBar.barTintColor = UIColor.colorWithHex(hexString: "f6f6f6")
         
-        // 设置 navigationBar 标题字体颜色
+        // 2> 设置 navigationBar 标题 字体颜色
         navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.withHex(hexInt: 0x323232)]
+        
+        // 3> 设置系统按钮的文字渲染颜色
+        navigationBar.tintColor = UIColor.orange
     }
     
     /// 设置状态栏背景颜色

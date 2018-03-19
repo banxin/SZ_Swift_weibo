@@ -31,21 +31,29 @@ class SZDemoViewController: SZBaseViewController {
 // MARK: - UI
 extension SZDemoViewController {
     
-    override func setupUI() {
-        
-        super.setupUI()
-        
-        // 设置右侧的控制器
-//        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "下一个", style: .plain, target: self, action: #selector(showNext))
-        
-//        let btn = UIButton.init(title: "下一个", fontSize: 16, normalColor: UIColor.darkGray, highlightColor: UIColor.orange)
+//    override func setupUI() {
 //
-//        btn.addTarget(self, action: #selector(showNext), for: .touchUpInside)
+//        super.setupUI()
 //
-//        navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: btn)
+//        // 设置右侧的控制器
+////        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "下一个", style: .plain, target: self, action: #selector(showNext))
+//
+////        let btn = UIButton.init(title: "下一个", fontSize: 16, normalColor: UIColor.darkGray, highlightColor: UIColor.orange)
+////
+////        btn.addTarget(self, action: #selector(showNext), for: .touchUpInside)
+////
+////        navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: btn)
+//
+//        // 使用抽取后的 UIBarButtonItem 的便利构造函数，简化代码
+////        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", target: self, action: #selector(showNext))
+//
+//        // 使用自定义的 navigationItem 设置左侧按钮
+//        navItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", target: self, action: #selector(showNext))
+//    }
+    
+    override func setupTableView() {
         
-        // 使用抽取后的 UIBarButtonItem 的便利构造函数，简化代码
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", target: self, action: #selector(showNext))
+        super.setupTableView()
         
         // 使用自定义的 navigationItem 设置左侧按钮
         navItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", target: self, action: #selector(showNext))

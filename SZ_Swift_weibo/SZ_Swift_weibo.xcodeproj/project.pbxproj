@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A90EB363205F531000103D30 /* SZNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90EB362205F531000103D30 /* SZNetworkManager.swift */; };
 		A9DE6CD42058F62000EF2D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6CD32058F62000EF2D28 /* AppDelegate.swift */; };
 		A9DE6CDB2058F62000EF2D28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9DE6CDA2058F62000EF2D28 /* Assets.xcassets */; };
 		A9DE6CE92058F62000EF2D28 /* SZ_Swift_weiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6CE82058F62000EF2D28 /* SZ_Swift_weiboTests.swift */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		67D25536D336046B07A152C2 /* Pods-SZ_Swift_weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SZ_Swift_weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SZ_Swift_weibo/Pods-SZ_Swift_weibo.debug.xcconfig"; sourceTree = "<group>"; };
 		A6E5B4C9F97F3DF55F344874 /* Pods-SZ_Swift_weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SZ_Swift_weibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SZ_Swift_weibo/Pods-SZ_Swift_weibo.release.xcconfig"; sourceTree = "<group>"; };
+		A90EB362205F531000103D30 /* SZNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZNetworkManager.swift; sourceTree = "<group>"; };
 		A9DE6CD02058F62000EF2D28 /* SZ_Swift_weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SZ_Swift_weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9DE6CD32058F62000EF2D28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9DE6CDA2058F62000EF2D28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +148,14 @@
 				A6E5B4C9F97F3DF55F344874 /* Pods-SZ_Swift_weibo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A90EB361205F52E400103D30 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A90EB362205F531000103D30 /* SZNetworkManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		A9DE6CC72058F62000EF2D28 = {
@@ -318,6 +328,7 @@
 		A9DE6D172058FEBA00EF2D28 /* Tools(工具) */ = {
 			isa = PBXGroup;
 			children = (
+				A90EB361205F52E400103D30 /* Network */,
 				A9DE6D3420590AB600EF2D28 /* OCFiles */,
 				A9DE6D182058FEBA00EF2D28 /* Extensions */,
 			);
@@ -509,15 +520,25 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SZ_Swift_weibo/Pods-SZ_Swift_weibo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -567,6 +588,7 @@
 				A9DE6D54205BB3D200EF2D28 /* main.json in Sources */,
 				A9DE6D3F20590AB600EF2D28 /* UIAlertAction+YTDefine.m in Sources */,
 				A9DE6D252058FEBA00EF2D28 /* WBBaseViewController.swift in Sources */,
+				A90EB363205F531000103D30 /* SZNetworkManager.swift in Sources */,
 				A9DE6D242058FEBA00EF2D28 /* WBVistorView.swift in Sources */,
 				A9DE6D452059146000EF2D28 /* SZNavigationController.swift in Sources */,
 				A9DE6D472059150D00EF2D28 /* SZBaseViewController.swift in Sources */,
