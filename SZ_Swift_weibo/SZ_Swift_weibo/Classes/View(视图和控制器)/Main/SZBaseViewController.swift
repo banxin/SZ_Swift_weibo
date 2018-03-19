@@ -27,8 +27,8 @@ import UIKit
 class SZBaseViewController: UIViewController {
     
     /// 用户是否登录 标记
-    var userLogon = false
-//    var userLogon = true
+//    var userLogon = false
+    var userLogon = true
     
     /// 访客视图信息字典 (外部传入)
     var vistorInfoDic: [String: String]?

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 /// 访客视图
 class SZVistorView: UIView {
