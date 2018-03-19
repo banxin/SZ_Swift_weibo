@@ -19,7 +19,39 @@ class SZHomeViewController: SZBaseViewController {
     /// 加载数据
     override func loadData() {
         
-        print("开始加载数据 --> \(SZNetworkManager.shared)")
+        // 测试用网络工具加载微博数据（最简单的get请求）
+//        let urlStr = "https://api.weibo.com/2/statuses/home_timeline.json"
+//
+//        let params = ["access_token": "2.00agKp7GmmCIeCc2f7e5c3d26H97nD"]
+//
+//        SZNetworkManager.shared.get(urlStr, parameters: params, progress: nil, success: { (_, json) in
+//
+//            print(json as Any)
+//
+//        }) { (_, error) in
+//
+//            print("网络请求失败，\(error)")
+//        }
+        
+        // 使用封装好的网络单例加载微博数据
+//        let urlStr = "https://api.weibo.com/2/statuses/home_timeline.json"
+//
+//        let params = ["access_token": "2.00agKp7GmmCIeCc2f7e5c3d26H97nD"]
+//
+//        SZNetworkManager.shared.request(method: .GET, URLString: urlStr, parameters: params as AnyObject) { (json, isSuccess) in
+//
+//            print(json as Any)
+//        }
+        
+        // 再次封装 获取首页数据的 extension 方法调用
+        SZNetworkManager.shared.statusList { (list, isSuccess) in
+            
+            // 字典转模型，绑定表格数据
+            print(list as Any)
+        }
+        
+        print("开始加载数据")
+//        print("开始加载数据 --> \(SZNetworkManager.shared)")
         
         // 模拟延时加载 -> dispatch_after
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
