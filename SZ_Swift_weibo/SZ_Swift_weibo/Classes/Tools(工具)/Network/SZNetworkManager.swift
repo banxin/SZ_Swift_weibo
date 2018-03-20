@@ -25,12 +25,28 @@ class SZNetworkManager: AFHTTPSessionManager {
     
     /// 访问令牌，所有网络请求，都基于此令牌（登录除外）
     /// 为了保护用户安全，token是有时限的，默认用户是 三天
-    var accessToken: String? = "2.00agKp7GmmCIeCc2f7e5c3d26H97nD"
+    var accessToken: String? // = "2.00agKp7GmmCIeCc2f7e5c3d26H97nD"
+//    var accessToken: String? = "2.00ml8IrFA_iCgDbfe53f17c08uLjAD"
+    
+    // 用户的微博 uid
+    var uid: String? = "5365823342"
+    
+    // 用户登录标记 -- [计算型属性]
+    var userLogon: Bool {
+        
+        return accessToken != nil
+    }
     
     // 模拟 token 过期 -> 服务器返回的状态码是 403，需要处理
 //    var accessToken: String? = "2.00agKp7GmmCIeCc2f7e5c3d26H97nD我是token"
     
     /// 专门负责拼接 token 的网络请求方法
+    ///
+    /// - Parameters:
+    ///   - method: GET / POST
+    ///   - URLString: URLString
+    ///   - parameters: 参数字典
+    ///   - completion: 完成回调[json(字典/数组), 是否成功]
     func tokenRequest(method: SZHTTPMethod = .GET, URLString: String, parameters: [String: AnyObject]?, completion: @escaping (_ json: AnyObject?, _ isSuccess: Bool) -> ()) {
         
         // 处理 token 字典

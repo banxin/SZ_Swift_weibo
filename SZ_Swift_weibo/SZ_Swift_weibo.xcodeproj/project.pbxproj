@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A901192E205F97720092214E /* SZStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A901192D205F97720092214E /* SZStatus.swift */; };
+		A9011930205F9B500092214E /* SZStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A901192F205F9B500092214E /* SZStatusListViewModel.swift */; };
+		A90119322060BABA0092214E /* WeiboCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90119312060BABA0092214E /* WeiboCommon.swift */; };
+		A90119352060C37B0092214E /* SZOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90119342060C37B0092214E /* SZOAuthViewController.swift */; };
 		A90EB363205F531000103D30 /* SZNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90EB362205F531000103D30 /* SZNetworkManager.swift */; };
 		A90EB365205F694E00103D30 /* SZNetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90EB364205F694E00103D30 /* SZNetworkManager+Extension.swift */; };
 		A9DE6CD42058F62000EF2D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6CD32058F62000EF2D28 /* AppDelegate.swift */; };
@@ -58,6 +62,10 @@
 /* Begin PBXFileReference section */
 		67D25536D336046B07A152C2 /* Pods-SZ_Swift_weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SZ_Swift_weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SZ_Swift_weibo/Pods-SZ_Swift_weibo.debug.xcconfig"; sourceTree = "<group>"; };
 		A6E5B4C9F97F3DF55F344874 /* Pods-SZ_Swift_weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SZ_Swift_weibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SZ_Swift_weibo/Pods-SZ_Swift_weibo.release.xcconfig"; sourceTree = "<group>"; };
+		A901192D205F97720092214E /* SZStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZStatus.swift; sourceTree = "<group>"; };
+		A901192F205F9B500092214E /* SZStatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZStatusListViewModel.swift; sourceTree = "<group>"; };
+		A90119312060BABA0092214E /* WeiboCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeiboCommon.swift; sourceTree = "<group>"; };
+		A90119342060C37B0092214E /* SZOAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZOAuthViewController.swift; sourceTree = "<group>"; };
 		A90EB362205F531000103D30 /* SZNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZNetworkManager.swift; sourceTree = "<group>"; };
 		A90EB364205F694E00103D30 /* SZNetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SZNetworkManager+Extension.swift"; sourceTree = "<group>"; };
 		A9DE6CD02058F62000EF2D28 /* SZ_Swift_weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SZ_Swift_weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +140,14 @@
 				A6E5B4C9F97F3DF55F344874 /* Pods-SZ_Swift_weibo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A90119332060C34F0092214E /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				A90119342060C37B0092214E /* SZOAuthViewController.swift */,
+			);
+			path = OAuth;
 			sourceTree = "<group>";
 		};
 		A90EB361205F52E400103D30 /* Network */ = {
@@ -254,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				A9DE6D462059150D00EF2D28 /* SZBaseViewController.swift */,
+				A90119332060C34F0092214E /* OAuth */,
 				A9DE6D0C2058FEBA00EF2D28 /* VistorView */,
 				A9DE6D0F2058FEBA00EF2D28 /* 测试 */,
 				A9DE6D112058FEBA00EF2D28 /* 主控制器 */,
@@ -290,6 +307,7 @@
 		A9DE6D152058FEBA00EF2D28 /* ViewModel(视图模型) */ = {
 			isa = PBXGroup;
 			children = (
+				A901192F205F9B500092214E /* SZStatusListViewModel.swift */,
 			);
 			path = "ViewModel(视图模型)";
 			sourceTree = "<group>";
@@ -297,6 +315,7 @@
 		A9DE6D162058FEBA00EF2D28 /* Model(模型) */ = {
 			isa = PBXGroup;
 			children = (
+				A901192D205F97720092214E /* SZStatus.swift */,
 			);
 			path = "Model(模型)";
 			sourceTree = "<group>";
@@ -307,6 +326,7 @@
 				A90EB361205F52E400103D30 /* Network */,
 				A9DE6D3420590AB600EF2D28 /* OCFiles */,
 				A9DE6D182058FEBA00EF2D28 /* Extensions */,
+				A90119312060BABA0092214E /* WeiboCommon.swift */,
 			);
 			path = "Tools(工具)";
 			sourceTree = "<group>";
@@ -561,18 +581,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A901192E205F97720092214E /* SZStatus.swift in Sources */,
 				A9DE6D54205BB3D200EF2D28 /* main.json in Sources */,
 				A9DE6D3F20590AB600EF2D28 /* UIAlertAction+YTDefine.m in Sources */,
 				A90EB363205F531000103D30 /* SZNetworkManager.swift in Sources */,
 				A9DE6D452059146000EF2D28 /* SZNavigationController.swift in Sources */,
 				A9DE6D472059150D00EF2D28 /* SZBaseViewController.swift in Sources */,
+				A90119322060BABA0092214E /* WeiboCommon.swift in Sources */,
 				A9DE6D2C2058FEBA00EF2D28 /* UIButton+Extension.swift in Sources */,
 				A9DE6D4020590AB600EF2D28 /* YTAlertController.m in Sources */,
 				A9DE6D53205A09C300EF2D28 /* SZVistorView.swift in Sources */,
+				A9011930205F9B500092214E /* SZStatusListViewModel.swift in Sources */,
 				A9DE6D4F2059156B00EF2D28 /* SZHomeViewController.swift in Sources */,
 				A9DE6CD42058F62000EF2D28 /* AppDelegate.swift in Sources */,
 				A9DE6D4320590DE800EF2D28 /* SZMainViewController.swift in Sources */,
 				A9DE6D4D2059155D00EF2D28 /* SZDiscoverViewController.swift in Sources */,
+				A90119352060C37B0092214E /* SZOAuthViewController.swift in Sources */,
 				A9DE6D2F2058FEBA00EF2D28 /* Bundle+Extentions.swift in Sources */,
 				A9DE6D4120590AB600EF2D28 /* UIAlertController+YTDefine.m in Sources */,
 				A9DE6D4B2059154D00EF2D28 /* SZMessageViewController.swift in Sources */,

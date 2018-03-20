@@ -10,6 +10,9 @@ import UIKit
 
 class SZMainViewController: UITabBarController {
     
+    /// 定时器
+    private var timer: Timer?
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -17,6 +20,29 @@ class SZMainViewController: UITabBarController {
         setupChildControllers()
         
         setupComposeBtn()
+        
+        setupTimer()
+        
+        // 设置代理
+        delegate = self
+        
+//        // 测试未读数量
+//        SZNetworkManager.shared.unreadCount { (count) in
+//
+//            print("有 \(count) 条新微博")
+//        }
+        
+        // 注册通知
+        NotificationCenter.default.addObserver(self, selector: #selector(userLogin), name: NSNotification.Name(rawValue: SZUserShouldLoginNotification), object: nil)
+    }
+    
+    deinit {
+        
+        // 销毁定时器
+        timer?.invalidate()
+        
+        // 注销通知
+        NotificationCenter.default.removeObserver(self)
     }
     
     /*
@@ -42,6 +68,18 @@ class SZMainViewController: UITabBarController {
     // 1> private 能够保证方法私有，仅在当前对象能够被访问
     // 2> @objc 允许这个函数在运行时通过 OC 的消息机制 被调用
     
+    /// 用户登录
+    @objc private func userLogin() {
+        
+        print("用户登录通知")
+        
+        // 展现登录控制器 - 通常会和 UINavigationController 连用，方便返回
+        
+        let nav = UINavigationController(rootViewController: SZOAuthViewController())
+        
+        present(nav, animated: true, completion: nil)
+    }
+    
     /// 撰写微博
     @objc private func composeStatus() {
         
@@ -55,6 +93,86 @@ class SZMainViewController: UITabBarController {
         let nav = UINavigationController.init(rootViewController: vc)
 
         present(nav, animated: true, completion: nil)
+    }
+}
+
+// MARK: - UITabBarControllerDelegate
+extension SZMainViewController: UITabBarControllerDelegate {
+    
+    // 将要切换，可以和当前选中的 tab 进行比较
+    
+    /// 将要选择 tabBarItem
+    ///
+    /// - Parameters:
+    ///   - tabBarController: tabBarController
+    ///   - viewController: 目标 VC
+    /// - Returns: 是否切换
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+//        print("将要切换的控制器 \(viewController)")
+        
+        // 1> 获取控制器在数组中的索引
+//        let idx = childViewControllers.index(of: viewController)
+        let idx = (childViewControllers as NSArray).index(of: viewController)
+        
+        // 2> 获取当前索引
+        // 判断当前索引是首页，并且将要选择的idx也是首页，相当于重复点击首页的按钮，再加上一个判断，用户登录的情况下
+        if SZNetworkManager.shared.userLogon && selectedIndex == 0 && selectedIndex == idx {
+            
+            print("重复点击首页")
+            
+            // 3> 让表格滚动到顶部
+            // a) 获取到控制器
+            let nav = childViewControllers[0] as! SZNavigationController
+            let vc  = nav.childViewControllers[0] as! SZHomeViewController
+            
+            // b) 滚动到顶部
+            vc.tableView?.setContentOffset(CGPoint(x: 0, y: -64), animated: true)
+            
+            // 4> 刷新数据
+            // 延迟 1 秒 执行，保证表格先滚动到顶部，再刷新，不然速度快的话，会有问题，导致数据刷新之后，表格没在顶部
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                
+                vc.loadData()
+            })
+        }
+        
+        // 判断目标控制器，是否是 UIVIewController，如果是，就不切换，可以用来判断中间按钮的容错，如果不是，就意味着是其他4个tab，切换
+        return !viewController.isMember(of: UIViewController.self)
+    }
+}
+
+// MARK: - 定时器相关
+extension SZMainViewController {
+    
+    /// 定义定时器
+    private func setupTimer() {
+        
+        // 时间间隔，建议长一些
+        timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    /// 定时器触发方法
+    @objc private func updateTimer() {
+        
+//        print(#function)
+        
+        // 用户登录了的情况下，才做轮询，没有登录，直接返回，什么也不做
+        if !SZNetworkManager.shared.userLogon {
+            
+            return
+        }
+        
+        SZNetworkManager.shared.unreadCount { (count) in
+            
+            print("检测到 \(count) 条新微博")
+            
+            // 设置 首页 tabBarItem 的 badgeNum
+            self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
+            
+            // 设置 APP 的 badgeNum，从 8.0 之后，要用户授权之后才能显示
+            UIApplication.shared.applicationIconBadgeNumber = count
+        }
     }
 }
 
@@ -183,8 +301,12 @@ extension SZMainViewController {
         // 计算按钮的宽度
         let count = CGFloat(childViewControllers.count)
         
-        // -1 遮挡系统的左右容错点，避免遮挡不住中间的tabbar item
-        let w = tabBar.bounds.width / count - 1
+//        // -1 遮挡系统的左右容错点，避免遮挡不住中间的tabbar item
+//        let w = tabBar.bounds.width / count - 1
+        
+        // 按钮的宽度
+        // 使用代理方法进行了判断，这里就可以不用使用容错点了
+        let w = tabBar.bounds.width / count
         
         // 设置按钮的位置
         // CGRectInset 正数向内缩进，负数向外扩展

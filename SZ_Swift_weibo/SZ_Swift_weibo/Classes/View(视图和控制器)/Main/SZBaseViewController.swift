@@ -26,9 +26,9 @@ import UIKit
 /// 所有主控制器的基类
 class SZBaseViewController: UIViewController {
     
-    /// 用户是否登录 标记
+    /// 用户是否登录 标记 --> 使用 network 中的accessToken来判断即可
 //    var userLogon = false
-    var userLogon = true
+//    var userLogon = true
     
     /// 访客视图信息字典 (外部传入)
     var vistorInfoDic: [String: String]?
@@ -54,7 +54,8 @@ class SZBaseViewController: UIViewController {
         
         setupUI()
         
-        loadData()
+        // 用户登录之后才加载数据
+        SZNetworkManager.shared.userLogon ? loadData() : ()
     }
     
     // 重写 title didSet 方法
@@ -79,12 +80,13 @@ extension SZBaseViewController {
     
     @objc private func login() {
         
-        print("login")
+        // 发送 用户登录 通知
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: SZUserShouldLoginNotification), object: nil)
     }
     
     @objc private func register() {
         
-        print("register ")
+        print("注册按钮")
     }
 }
 
@@ -104,7 +106,12 @@ extension SZBaseViewController {
         setupNavigationBar()
         
         // 用户登录则显示列表视图，否则显示访客视图
-        userLogon ? setupTableView() : setupVistorView()
+        // 使用 accessToken 是否为空 来判定即可
+//        userLogon ? setupTableView() : setupVistorView()
+//        (SZNetworkManager.shared.accessToken != nil) ? setupTableView() : setupVistorView()
+        
+        // 用计算型属性 - 用户是否登记标记来判定，可读性更高
+        SZNetworkManager.shared.userLogon ? setupTableView() : setupVistorView()
         
         // 测试调用OC代码
         //        let alert = YTAlertController.init(title: "测试", message: "看看是不是调用OC成功了", preferredStyle: .alert)

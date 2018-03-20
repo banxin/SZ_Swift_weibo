@@ -13,13 +13,16 @@ private let cellId = "cellId"
 
 class SZHomeViewController: SZBaseViewController {
 
-    /// 微博数据数组
-    private lazy var statusList = [String]()
+//    /// 微博数据数组
+//    private lazy var statusList = [String]()
+    
+    /// 列表视图模型
+    private lazy var listViewModel = SZStatusListViewModel()
     
     /// 加载数据
     override func loadData() {
         
-        // 测试用网络工具加载微博数据（最简单的get请求）
+        // 1. 测试用网络工具加载微博数据（最简单的get请求）
 //        let urlStr = "https://api.weibo.com/2/statuses/home_timeline.json"
 //
 //        let params = ["access_token": "2.00agKp7GmmCIeCc2f7e5c3d26H97nD"]
@@ -33,7 +36,7 @@ class SZHomeViewController: SZBaseViewController {
 //            print("网络请求失败，\(error)")
 //        }
         
-        // 使用封装好的网络单例加载微博数据
+        // 2. 使用封装好的网络单例加载微博数据
 //        let urlStr = "https://api.weibo.com/2/statuses/home_timeline.json"
 //
 //        let params = ["access_token": "2.00agKp7GmmCIeCc2f7e5c3d26H97nD"]
@@ -43,37 +46,23 @@ class SZHomeViewController: SZBaseViewController {
 //            print(json as Any)
 //        }
         
-        // 再次封装 获取首页数据的 extension 方法调用
-        SZNetworkManager.shared.statusList { (list, isSuccess) in
-            
-            // 字典转模型，绑定表格数据
-            print(list as Any)
-        }
+//        // 3. 再次封装 获取首页数据的 extension 方法调用
+//        SZNetworkManager.shared.statusList { (list, isSuccess) in
+//
+//            // 字典转模型，绑定表格数据
+//            print(list as Any)
+//        }
         
-        print("开始加载数据")
-//        print("开始加载数据 --> \(SZNetworkManager.shared)")
+        print("准备刷洗，最后一条 \(self.listViewModel.statusList.last?.text ?? "")")
         
-        // 模拟延时加载 -> dispatch_after
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
+        // 4. 使用 viewModel 获取首页数据
+        listViewModel.loadStatus(isPullUp: self.isPullUp) { (isSuccess, shouldRefresh) in
             
-            if self.isPullUp {
-                
-                for i in 0..<20 {
-                    
-                    // 将数据追加到底部
-                    self.statusList.append("上拉 \(i)")
-                }
-                
-            } else {
-                
-                for i in 0..<20 {
-                    
-                    // 将数据插入到数据顶部
-                    self.statusList.insert(i.description, at: 0)
-                }
-            }
+            //                print("开始加载数据")
             
+            // 刷新数据完成
             print("加载数据结束")
+            //                print("加载数据结束 \(self.listViewModel.statusList.last?.text ?? "")")
             
             // 结束刷新控件
             self.refreshControl?.endRefreshing()
@@ -81,11 +70,68 @@ class SZHomeViewController: SZBaseViewController {
             // 恢复上拉加载刷新标记
             self.isPullUp = false
             
-            print("刷新表格")
+            //                print("刷新表格")
             
-            // 刷新表格
-            self.tableView?.reloadData()
+            // 有下一页才刷新表格
+            if shouldRefresh {
+                
+                // 刷新表格
+                self.tableView?.reloadData()
+            }
+            
+//            print("开始加载数据")
+//
+//            // 刷新数据完成
+//            print("加载数据结束")
+//
+//            // 结束刷新控件
+//            self.refreshControl?.endRefreshing()
+//
+//            // 恢复上拉加载刷新标记
+//            self.isPullUp = false
+//
+//            print("刷新表格")
+//
+//            // 刷新表格
+//            self.tableView?.reloadData()
         }
+        
+//        print("开始加载数据")
+////        print("开始加载数据 --> \(SZNetworkManager.shared)")
+//
+//        // 模拟延时加载 -> dispatch_after
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
+//
+//            if self.isPullUp {
+//
+//                for i in 0..<20 {
+//
+//                    // 将数据追加到底部
+//                    self.statusList.append("上拉 \(i)")
+//                }
+//
+//            } else {
+//
+//                for i in 0..<20 {
+//
+//                    // 将数据插入到数据顶部
+//                    self.statusList.insert(i.description, at: 0)
+//                }
+//            }
+//
+//            print("加载数据结束")
+//
+//            // 结束刷新控件
+//            self.refreshControl?.endRefreshing()
+//
+//            // 恢复上拉加载刷新标记
+//            self.isPullUp = false
+//
+//            print("刷新表格")
+//
+//            // 刷新表格
+//            self.tableView?.reloadData()
+//        }
     }
     
     /// 显示好友
@@ -107,7 +153,9 @@ extension SZHomeViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return statusList.count
+//        return statusList.count
+        
+        return listViewModel.statusList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -116,7 +164,8 @@ extension SZHomeViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
         // 2.设置cell
-        cell.textLabel?.text = statusList[indexPath.row]
+//        cell.textLabel?.text = statusList[indexPath.row]
+        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
         
         // 3.返回cell
         return cell
