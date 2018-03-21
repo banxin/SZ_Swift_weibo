@@ -156,15 +156,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		A90119332060C34F0092214E /* OAuth */ = {
+		A90119332060C34F0092214E /* OAuth(授权) */ = {
 			isa = PBXGroup;
 			children = (
 				A90119342060C37B0092214E /* SZOAuthViewController.swift */,
 			);
-			path = OAuth;
+			path = "OAuth(授权)";
 			sourceTree = "<group>";
 		};
-		A90D1E3B20624B7300E2CF0F /* NewFeature */ = {
+		A90D1E3B20624B7300E2CF0F /* NewFeature(新特性) */ = {
 			isa = PBXGroup;
 			children = (
 				A90D1E3C20624C2000E2CF0F /* SZWelcomeView.swift */,
@@ -172,7 +172,7 @@
 				A90D1E3E20624C7300E2CF0F /* SZNewFeatureView.swift */,
 				A98607D620626FB3001525FE /* SZNewFeatureView.xib */,
 			);
-			path = NewFeature;
+			path = "NewFeature(新特性)";
 			sourceTree = "<group>";
 		};
 		A90EB361205F52E400103D30 /* Network */ = {
@@ -271,7 +271,7 @@
 				A9DE6D052058FEBA00EF2D28 /* Discover */,
 				A9DE6D072058FEBA00EF2D28 /* Message */,
 				A9DE6D092058FEBA00EF2D28 /* Profile */,
-				A9DE6D0B2058FEBA00EF2D28 /* Main */,
+				A9DE6D0B2058FEBA00EF2D28 /* Main(主要的) */,
 			);
 			path = "View(视图和控制器)";
 			sourceTree = "<group>";
@@ -309,25 +309,25 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		A9DE6D0B2058FEBA00EF2D28 /* Main */ = {
+		A9DE6D0B2058FEBA00EF2D28 /* Main(主要的) */ = {
 			isa = PBXGroup;
 			children = (
-				A90D1E3B20624B7300E2CF0F /* NewFeature */,
-				A90119332060C34F0092214E /* OAuth */,
-				A9DE6D0C2058FEBA00EF2D28 /* VistorView */,
-				A9DE6D0F2058FEBA00EF2D28 /* 测试 */,
 				A9DE6D112058FEBA00EF2D28 /* 主控制器 */,
+				A90D1E3B20624B7300E2CF0F /* NewFeature(新特性) */,
+				A90119332060C34F0092214E /* OAuth(授权) */,
+				A9DE6D0C2058FEBA00EF2D28 /* VistorView(访客视图) */,
+				A9DE6D0F2058FEBA00EF2D28 /* 测试 */,
 				A9DE6D462059150D00EF2D28 /* SZBaseViewController.swift */,
 			);
-			path = Main;
+			path = "Main(主要的)";
 			sourceTree = "<group>";
 		};
-		A9DE6D0C2058FEBA00EF2D28 /* VistorView */ = {
+		A9DE6D0C2058FEBA00EF2D28 /* VistorView(访客视图) */ = {
 			isa = PBXGroup;
 			children = (
 				A9DE6D52205A09C300EF2D28 /* SZVistorView.swift */,
 			);
-			path = VistorView;
+			path = "VistorView(访客视图)";
 			sourceTree = "<group>";
 		};
 		A9DE6D0F2058FEBA00EF2D28 /* 测试 */ = {
