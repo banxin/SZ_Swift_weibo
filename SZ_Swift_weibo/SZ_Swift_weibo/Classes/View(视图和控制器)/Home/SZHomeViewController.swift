@@ -213,6 +213,26 @@ extension SZHomeViewController {
         
         // 注册原型 cell
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        
+        setupTitle()
+    }
+    
+    /// 设置导航栏标题
+    private func setupTitle() {
+        
+        let title = SZNetworkManager.shared.userAccount.screen_name
+        
+        let btn = SZTitleButton(title: title ?? "")
+        
+        btn.addTarget(self, action: #selector(clickBtnTitle), for: .touchUpInside)
+        
+        navItem.titleView = btn
+    }
+    
+    @objc private func clickBtnTitle(btn: UIButton) {
+        
+        // 设置选中状态
+        btn.isSelected = !btn.isSelected
     }
 }
 

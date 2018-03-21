@@ -69,12 +69,14 @@ class SZNetworkManager: AFHTTPSessionManager {
     func tokenRequest(method: SZHTTPMethod = .GET, URLString: String, parameters: [String: AnyObject]?, completion: @escaping (_ json: AnyObject?, _ isSuccess: Bool) -> ()) {
         
         // 处理 token 字典
-        // 0> 判断 token 是否 为nil，如果为 nil， 直接返回
+        // 0> 判断 token 是否 为nil，如果为 nil， 直接返回，程序执行过程中，token 一般不会为 nil
 //        guard let token = accessToken else {
         guard let token = userAccount.access_token else {
             
-            // FIXME: 发送通知，提示用户登录
             print("没有 token，需要登录")
+            
+            // 发送通知，提示用户登录
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: SZUserShouldLoginNotification), object: nil)
             
             completion(nil, false)
             
@@ -121,7 +123,8 @@ class SZNetworkManager: AFHTTPSessionManager {
                 
                 print("token 过期了")
                 
-                // FIXME: 发送通知，提示用户再次登录（本方法不知道被谁调用，谁接收到通知，谁处理）
+                // 发送通知，提示用户再次登录（本方法不知道被谁调用，谁接收到通知，谁处理）
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: SZUserShouldLoginNotification), object: "bad token")
             }
             
             // error 通常比较吓人，很多很杂的东西，例如：编号XXX，错误信息一堆英文！

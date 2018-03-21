@@ -34,6 +34,12 @@ class SZUserAccount: NSObject {
     /// 过期日期 - 通过 重写 expires_in 的 set方法 来设置
     @objc var expiresDate: Date?
     
+    /// 用户昵称
+    @objc var screen_name: String?
+    
+    /// 用户头像地址（大图），180×180像素
+    @objc var avatar_large: String?
+    
     override var description: String {
         
         return yy_modelDescription()
@@ -56,6 +62,7 @@ class SZUserAccount: NSObject {
         }
         
         // 2> 使用 字典 设置属性值
+        // *** 用户是否登录的关键代码
         yy_modelSet(with: dict ?? [:])
         
         //        print("从沙盒加载用户信息 \(self)")

@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SZ_Swift_weibo/Classes/Tools(&#x5de5;&#x5177;)/Network/SZNetworkManager+Extension.swift"
-            timestampString = "543239378.739826"
+            timestampString = "543308086.179345"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -26,12 +26,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SZ_Swift_weibo/Classes/Tools(&#x5de5;&#x5177;)/Network/SZNetworkManager+Extension.swift"
-            timestampString = "543239378.73992"
+            timestampString = "543308086.1795191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
             endingLineNumber = "30"
             landmarkName = "statusList(since_id:max_id:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SZ_Swift_weibo/Classes/View(&#x89c6;&#x56fe;&#x548c;&#x63a7;&#x5236;&#x5668;)/Home/SZHomeViewController.swift"
+            timestampString = "543317884.108947"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "setupTitle()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SZ_Swift_weibo.SZHomeViewController.(setupTitle in _777EED92E3DF6469BDD99E08595B711E)() -&gt; ()"
+                  moduleName = "SZ_Swift_weibo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yanl/Documents/shanzhuworkspace/SZ_Swift_weibo/SZ_Swift_weibo/SZ_Swift_weibo/Classes/View(%E8%A7%86%E5%9B%BE%E5%92%8C%E6%8E%A7%E5%88%B6%E5%99%A8)/Home/SZHomeViewController.swift"
+                  timestampString = "543309478.370338"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "225"
+                  endingLineNumber = "225"
+                  offsetFromSymbolStart = "247">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #1 : @autoclosure () throws -&gt; Swift.String in SZ_Swift_weibo.SZHomeViewController.(setupTitle in _777EED92E3DF6469BDD99E08595B711E)() -&gt; ()"
+                  moduleName = "SZ_Swift_weibo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yanl/Documents/shanzhuworkspace/SZ_Swift_weibo/SZ_Swift_weibo/SZ_Swift_weibo/Classes/View(%E8%A7%86%E5%9B%BE%E5%92%8C%E6%8E%A7%E5%88%B6%E5%99%A8)/Home/SZHomeViewController.swift"
+                  timestampString = "543309478.373659"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "225"
+                  endingLineNumber = "225"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SZ_Swift_weibo/Classes/View(&#x89c6;&#x56fe;&#x548c;&#x63a7;&#x5236;&#x5668;)/Main/NewFeature/SZWelcomeView.swift"
+            timestampString = "543333964.179597"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "awakeFromNib()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

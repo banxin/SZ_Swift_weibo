@@ -75,6 +75,31 @@ extension SZNetworkManager {
     }
 }
 
+// MARK: - 获取用户信息
+extension SZNetworkManager {
+    
+    /// 加载当前用户信息 - 用户登录后 立即执行
+    func loadUserInfo(completion: @escaping (_ dic: [String: AnyObject]) -> ()) {
+        
+        guard let uid = userAccount.uid else {
+            
+            return
+        }
+        
+        let urlStr = "https://api.weibo.com/2/users/show.json"
+        
+        let params = ["uid": uid as AnyObject]
+        
+        // 发起网络请求
+        tokenRequest(URLString: urlStr, parameters: params) { (json, isSuccess) in
+            
+//            print("加载用户信息完成 \(json as Any)")
+            
+            completion(json as? [String: AnyObject] ?? [:])
+        }
+    }
+}
+
 // MARK: - OAuth 相关方法
 extension SZNetworkManager {
     
@@ -101,18 +126,23 @@ extension SZNetworkManager {
         // 发起请求
         request(method: .POST, URLString: urlStr, parameters: params as [String : AnyObject]) { (json, isSuccess) in
             
-//            print(json as Any)
-            
             // 如果请求失败，对用户账户数据不会有任何影响
-            
             // 直接用字典设置 userAccount
             self.userAccount.yy_modelSet(with: (json as? [String: AnyObject]) ?? [:])
             
-//            print(self.userAccount)
-            
-            self.userAccount.saveAccount()
-            
-            completion(true)
+            // 加载用户信息
+            self.loadUserInfo(completion: { (dict) in
+                
+                // 使用用户信息字典 设置用户信息（昵称和头像url）
+                self.userAccount.yy_modelSet(with: dict)
+                
+                // 设置完用户信息之后再保存
+                // 保存用户账号信息
+                self.userAccount.saveAccount()
+                
+                // 加载用户信息完成之后，再回调
+                completion(isSuccess)
+            })
         }
     }
 }

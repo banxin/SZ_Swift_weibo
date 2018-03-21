@@ -11,10 +11,15 @@
 		A9011930205F9B500092214E /* SZStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A901192F205F9B500092214E /* SZStatusListViewModel.swift */; };
 		A90119322060BABA0092214E /* WeiboCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90119312060BABA0092214E /* WeiboCommon.swift */; };
 		A90119352060C37B0092214E /* SZOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90119342060C37B0092214E /* SZOAuthViewController.swift */; };
+		A90D1E3D20624C2000E2CF0F /* SZWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90D1E3C20624C2000E2CF0F /* SZWelcomeView.swift */; };
+		A90D1E3F20624C7300E2CF0F /* SZNewFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90D1E3E20624C7300E2CF0F /* SZNewFeatureView.swift */; };
+		A90D1E4120625CCE00E2CF0F /* SZWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A90D1E4020625CCE00E2CF0F /* SZWelcomeView.xib */; };
 		A90EB363205F531000103D30 /* SZNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90EB362205F531000103D30 /* SZNetworkManager.swift */; };
 		A90EB365205F694E00103D30 /* SZNetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90EB364205F694E00103D30 /* SZNetworkManager+Extension.swift */; };
 		A95CFA202061056300AECAE3 /* SZUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95CFA1F2061056300AECAE3 /* SZUserAccount.swift */; };
 		A95CFA22206113F600AECAE3 /* NSString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95CFA21206113F600AECAE3 /* NSString+Extension.swift */; };
+		A95CFA25206239B700AECAE3 /* SZTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95CFA24206239B700AECAE3 /* SZTitleButton.swift */; };
+		A98607D720626FB3001525FE /* SZNewFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98607D620626FB3001525FE /* SZNewFeatureView.xib */; };
 		A9DE6CD42058F62000EF2D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6CD32058F62000EF2D28 /* AppDelegate.swift */; };
 		A9DE6CDB2058F62000EF2D28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9DE6CDA2058F62000EF2D28 /* Assets.xcassets */; };
 		A9DE6CE92058F62000EF2D28 /* SZ_Swift_weiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6CE82058F62000EF2D28 /* SZ_Swift_weiboTests.swift */; };
@@ -68,10 +73,15 @@
 		A901192F205F9B500092214E /* SZStatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZStatusListViewModel.swift; sourceTree = "<group>"; };
 		A90119312060BABA0092214E /* WeiboCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeiboCommon.swift; sourceTree = "<group>"; };
 		A90119342060C37B0092214E /* SZOAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZOAuthViewController.swift; sourceTree = "<group>"; };
+		A90D1E3C20624C2000E2CF0F /* SZWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZWelcomeView.swift; sourceTree = "<group>"; };
+		A90D1E3E20624C7300E2CF0F /* SZNewFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZNewFeatureView.swift; sourceTree = "<group>"; };
+		A90D1E4020625CCE00E2CF0F /* SZWelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SZWelcomeView.xib; sourceTree = "<group>"; };
 		A90EB362205F531000103D30 /* SZNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZNetworkManager.swift; sourceTree = "<group>"; };
 		A90EB364205F694E00103D30 /* SZNetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SZNetworkManager+Extension.swift"; sourceTree = "<group>"; };
 		A95CFA1F2061056300AECAE3 /* SZUserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZUserAccount.swift; sourceTree = "<group>"; };
 		A95CFA21206113F600AECAE3 /* NSString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSString+Extension.swift"; sourceTree = "<group>"; };
+		A95CFA24206239B700AECAE3 /* SZTitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZTitleButton.swift; sourceTree = "<group>"; };
+		A98607D620626FB3001525FE /* SZNewFeatureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SZNewFeatureView.xib; sourceTree = "<group>"; };
 		A9DE6CD02058F62000EF2D28 /* SZ_Swift_weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SZ_Swift_weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9DE6CD32058F62000EF2D28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9DE6CDA2058F62000EF2D28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,6 +164,17 @@
 			path = OAuth;
 			sourceTree = "<group>";
 		};
+		A90D1E3B20624B7300E2CF0F /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				A90D1E3C20624C2000E2CF0F /* SZWelcomeView.swift */,
+				A90D1E4020625CCE00E2CF0F /* SZWelcomeView.xib */,
+				A90D1E3E20624C7300E2CF0F /* SZNewFeatureView.swift */,
+				A98607D620626FB3001525FE /* SZNewFeatureView.xib */,
+			);
+			path = NewFeature;
+			sourceTree = "<group>";
+		};
 		A90EB361205F52E400103D30 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +191,14 @@
 				A95CFA1F2061056300AECAE3 /* SZUserAccount.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A95CFA232062399E00AECAE3 /* DefineView */ = {
+			isa = PBXGroup;
+			children = (
+				A95CFA24206239B700AECAE3 /* SZTitleButton.swift */,
+			);
+			path = DefineView;
 			sourceTree = "<group>";
 		};
 		A9DE6CC72058F62000EF2D28 = {
@@ -250,6 +279,7 @@
 		A9DE6D032058FEBA00EF2D28 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A95CFA232062399E00AECAE3 /* DefineView */,
 				A9DE6D4E2059156B00EF2D28 /* SZHomeViewController.swift */,
 			);
 			path = Home;
@@ -282,11 +312,12 @@
 		A9DE6D0B2058FEBA00EF2D28 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				A9DE6D462059150D00EF2D28 /* SZBaseViewController.swift */,
+				A90D1E3B20624B7300E2CF0F /* NewFeature */,
 				A90119332060C34F0092214E /* OAuth */,
 				A9DE6D0C2058FEBA00EF2D28 /* VistorView */,
 				A9DE6D0F2058FEBA00EF2D28 /* 测试 */,
 				A9DE6D112058FEBA00EF2D28 /* 主控制器 */,
+				A9DE6D462059150D00EF2D28 /* SZBaseViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -502,7 +533,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9DE6D282058FEBA00EF2D28 /* main.json in Resources */,
+				A90D1E4120625CCE00E2CF0F /* SZWelcomeView.xib in Resources */,
 				A9DE6CDB2058F62000EF2D28 /* Assets.xcassets in Resources */,
+				A98607D720626FB3001525FE /* SZNewFeatureView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,15 +630,18 @@
 			files = (
 				A901192E205F97720092214E /* SZStatus.swift in Sources */,
 				A9DE6D54205BB3D200EF2D28 /* main.json in Sources */,
+				A90D1E3D20624C2000E2CF0F /* SZWelcomeView.swift in Sources */,
 				A9DE6D3F20590AB600EF2D28 /* UIAlertAction+YTDefine.m in Sources */,
 				A90EB363205F531000103D30 /* SZNetworkManager.swift in Sources */,
 				A9DE6D452059146000EF2D28 /* SZNavigationController.swift in Sources */,
 				A9DE6D472059150D00EF2D28 /* SZBaseViewController.swift in Sources */,
 				A90119322060BABA0092214E /* WeiboCommon.swift in Sources */,
+				A95CFA25206239B700AECAE3 /* SZTitleButton.swift in Sources */,
 				A9DE6D2C2058FEBA00EF2D28 /* UIButton+Extension.swift in Sources */,
 				A9DE6D4020590AB600EF2D28 /* YTAlertController.m in Sources */,
 				A9DE6D53205A09C300EF2D28 /* SZVistorView.swift in Sources */,
 				A9011930205F9B500092214E /* SZStatusListViewModel.swift in Sources */,
+				A90D1E3F20624C7300E2CF0F /* SZNewFeatureView.swift in Sources */,
 				A9DE6D4F2059156B00EF2D28 /* SZHomeViewController.swift in Sources */,
 				A9DE6CD42058F62000EF2D28 /* AppDelegate.swift in Sources */,
 				A9DE6D4320590DE800EF2D28 /* SZMainViewController.swift in Sources */,
@@ -775,7 +811,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SZ_Swift_weibo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.langyan.hbfs.SZ-Swift-weibo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -793,7 +829,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SZ_Swift_weibo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.langyan.hbfs.SZ-Swift-weibo";
 				PRODUCT_NAME = "$(TARGET_NAME)";

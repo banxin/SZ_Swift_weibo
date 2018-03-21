@@ -11,9 +11,16 @@ import UIKit
 class SZDiscoverViewController: SZBaseViewController {
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // 测试修改 token
+        // 模拟没有token
+//        SZNetworkManager.shared.userAccount.access_token = nil
+        // 模拟过期
+//        SZNetworkManager.shared.userAccount.access_token = "hello token"
+        
+        print("修改token")
     }
 
     override func didReceiveMemoryWarning() {

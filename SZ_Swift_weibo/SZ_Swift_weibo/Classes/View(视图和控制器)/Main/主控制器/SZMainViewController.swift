@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class SZMainViewController: UITabBarController {
     
@@ -22,6 +23,9 @@ class SZMainViewController: UITabBarController {
         setupComposeBtn()
         
         setupTimer()
+        
+        // 设置新特性视图
+        setupNewFeatureViews()
         
         // 设置代理
         delegate = self
@@ -69,15 +73,34 @@ class SZMainViewController: UITabBarController {
     // 2> @objc 允许这个函数在运行时通过 OC 的消息机制 被调用
     
     /// 用户登录
-    @objc private func userLogin() {
+    @objc private func userLogin(n: Notification) {
         
         print("用户登录通知")
         
-        // 展现登录控制器 - 通常会和 UINavigationController 连用，方便返回
+        var deadline = DispatchTime.now()
         
-        let nav = UINavigationController(rootViewController: SZOAuthViewController())
+        // 判断 n 的 object 是否有值，如果有值，提示用户重新登录
+        if n.object != nil {
+            
+            // 设置渐变样式
+            SVProgressHUD.setDefaultMaskType(.gradient)
+            SVProgressHUD.showInfo(withStatus: "用户登录超时，需要重新登录")
+            
+            // 修改延时时间，token 过期，才需要提示用户
+            deadline = DispatchTime.now() + 2
+        }
         
-        present(nav, animated: true, completion: nil)
+        // 延时两秒执行
+        DispatchQueue.main.asyncAfter(deadline: deadline) {
+            
+            // 恢复默认样式
+            SVProgressHUD.setDefaultMaskType(.clear)
+            
+            // 展现登录控制器 - 通常会和 UINavigationController 连用，方便返回
+            let nav = UINavigationController(rootViewController: SZOAuthViewController())
+            
+            self.present(nav, animated: true, completion: nil)
+        }
     }
     
     /// 撰写微博
@@ -93,6 +116,57 @@ class SZMainViewController: UITabBarController {
         let nav = UINavigationController.init(rootViewController: vc)
 
         present(nav, animated: true, completion: nil)
+    }
+}
+
+// MARK: - 新特性视图处理
+extension SZMainViewController {
+    
+    /// 设置新特性视图
+    private func setupNewFeatureViews() {
+        
+        // 0. 判断用户是否登录
+        if !SZNetworkManager.shared.userLogon {
+            
+            return
+        }
+        
+        // 1. 如果更新，显示新特性，否则显示更新
+        let v = isNewVersion ? SZNewFeatureView.newFeatureView() : SZWelcomeView.welcomeView()
+        
+        // 2. 添加视图
+        view.addSubview(v)
+    }
+    
+    /// extension 中可以有计算型属性，不会占用存储空间
+    /// 构造函数：给属性分配空间
+    private var isNewVersion: Bool {
+        
+        /*
+         版本号：
+         
+         - 在App Store中，每次升级应用程序，版本号都需要增加，不能递减
+         - 组成：主版本号，次版本号， 修订版本号
+         - 主版本号，意味着大的修改，使用者也需要做大的适应
+         - 次版本号，意味着小的修改，某些函数和方法的使用或者参数有变化
+         - 修订版本号，框架 / 者程序内部 bug 的修订，不会对使用者造成任何的影响
+         */
+        
+        // 1. 当前的版本 - info.plist CFBundleShortVersionString
+        //        print("\(Bundle.main.infoDictionary ?? [:])")
+        let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+        
+        // 取保存在 'Document(iTunes备份)[最理想保存在用户偏好]' 目录中的之前的版本号
+        // 2. `之前`的版本，把当前版本保存在用户偏好 - 如果 key 不存在，返回 0
+        let sandboxVersionKey = "sandboxVersionKey"
+        let sandboxVersion = UserDefaults.standard.string(forKey: sandboxVersionKey)
+        
+        // 3. 将当前版本号保存在沙盒
+        UserDefaults.standard.set(currentVersion, forKey: sandboxVersionKey)
+        
+        // 4. 返回两个版本号 ‘是否一致’
+        return currentVersion != sandboxVersion
+//        return currentVersion == sandboxVersion
     }
 }
 
