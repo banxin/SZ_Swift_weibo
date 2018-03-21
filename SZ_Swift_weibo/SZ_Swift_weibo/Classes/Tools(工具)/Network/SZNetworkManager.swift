@@ -21,20 +21,39 @@ class SZNetworkManager: AFHTTPSessionManager {
     
     /// 静态区 / 常量 / 闭包
     /// 在第一次访问时，执行闭包，并且将结果保存在shared常量中
-    static let shared = SZNetworkManager()
+//    static let shared = SZNetworkManager()
+    
+    // 将默认懒加载闭包扩展
+    static let shared: SZNetworkManager = {
+        
+        // 实例化对象
+        let instance = SZNetworkManager()
+        
+        // 设置响应的反序列化 支持的 数据类型
+        instance.responseSerializer.acceptableContentTypes?.insert("text/plain")
+        
+        return instance
+    }()
     
     /// 访问令牌，所有网络请求，都基于此令牌（登录除外）
     /// 为了保护用户安全，token是有时限的，默认用户是 三天
-    var accessToken: String? // = "2.00agKp7GmmCIeCc2f7e5c3d26H97nD"
-//    var accessToken: String? = "2.00ml8IrFA_iCgDbfe53f17c08uLjAD"
+//    var accessToken: String? // = "2.00agKp7GmmCIeCc2f7e5c3d26H97nD"
     
-    // 用户的微博 uid
-    var uid: String? = "5365823342"
+    // 用用户账户替换
+//    // 通过授权接口获取到的 token
+//    var accessToken: String? // = "2.00agKp7GmmCIeC27fbda3419XfN2JD"
+//
+//    // 用户的微博 uid
+//    var uid: String? = "5893177536"
+    
+    /// 用户账号信息懒加载属性
+    lazy var userAccount = SZUserAccount()
     
     // 用户登录标记 -- [计算型属性]
     var userLogon: Bool {
         
-        return accessToken != nil
+//        return accessToken != nil
+        return userAccount.access_token != nil
     }
     
     // 模拟 token 过期 -> 服务器返回的状态码是 403，需要处理
@@ -51,7 +70,8 @@ class SZNetworkManager: AFHTTPSessionManager {
         
         // 处理 token 字典
         // 0> 判断 token 是否 为nil，如果为 nil， 直接返回
-        guard let token = accessToken else {
+//        guard let token = accessToken else {
+        guard let token = userAccount.access_token else {
             
             // FIXME: 发送通知，提示用户登录
             print("没有 token，需要登录")

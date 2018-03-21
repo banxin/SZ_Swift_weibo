@@ -56,6 +56,14 @@ class SZBaseViewController: UIViewController {
         
         // 用户登录之后才加载数据
         SZNetworkManager.shared.userLogon ? loadData() : ()
+        
+        // 注册通知
+        NotificationCenter.default.addObserver(self, selector: #selector(loginSuccess), name: NSNotification.Name(rawValue: SZUserLoginSuccessNotification), object: nil)
+    }
+    
+    deinit {
+        
+        NotificationCenter.default.removeObserver(self)
     }
     
     // 重写 title didSet 方法
@@ -78,6 +86,26 @@ class SZBaseViewController: UIViewController {
 // MARK: - 访客视图监听方法
 extension SZBaseViewController {
     
+    /// 登录成功处理
+    @objc private func loginSuccess(n: Notification) {
+        
+        print("登录成功 \(n)")
+        
+        // 登录前 左边是 注册，右边是登录
+        // 先清除，再让重新设置
+        navigationItem.leftBarButtonItem  = nil
+        navigationItem.rightBarButtonItem = nil
+        
+        // 更新 UI - 将访客视图替换为表格视图
+        // 需要重新设置 view
+        // 在访问 view 的 getter 方法时，当 view = nil，会调用 loadView -> viewDidLoad，所以 会重新执行一次 viewDidLoad
+        view = nil
+        
+        // 注销通知 -> 重新执行 viewDidLoad 会再次注册！避免通知被重复注册
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    /// 发送 登录 通知
     @objc private func login() {
         
         // 发送 用户登录 通知
@@ -142,6 +170,9 @@ extension SZBaseViewController {
 //        tableView?.contentInset = UIEdgeInsets(top: navigationBar.bounds.height, left: 0, bottom: tabBarController?.tabBar.bounds.height ?? 49, right: 0)
         // 这里不设置底部的缩进就是正常的，原因不明 @山竹
         tableView?.contentInset = UIEdgeInsets(top: navigationBar.bounds.height, left: 0, bottom: 0, right: 0)
+    
+        // *** 修改指示器的缩进  此处的 tableView! 强行解包为了拿到一个必有的inset
+        tableView?.scrollIndicatorInsets = tableView!.contentInset
         
         // 设置刷新控件
         // 1> 实例化控件

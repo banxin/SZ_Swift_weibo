@@ -40,11 +40,12 @@ extension SZNetworkManager {
         }
     }
     
-    // 返回微博的 未读数量
+    // 返回微博的 未读数量 -- 定时调用，不需要提示是否失败！
     func unreadCount(completion: @escaping (_ count: Int) -> ()) {
         
-        guard let uid = uid else {
-            
+//        guard let uid = uid else {
+        guard let uid = userAccount.uid else {
+        
             return
         }
         
@@ -56,7 +57,7 @@ extension SZNetworkManager {
             
 //            print(json as Any)
             
-            // FIXME: 该接口暂时不可用，直接返回假数
+            // FIXME: 该接口暂时不可用，直接返回假数据
 //            guard let dict = json as? [String: AnyObject],
 //                   let count = json?["status"] else {
 //
@@ -70,6 +71,48 @@ extension SZNetworkManager {
 //            completion(count ?? 0)
             
             completion(3)
+        }
+    }
+}
+
+// MARK: - OAuth 相关方法
+extension SZNetworkManager {
+    
+    /// 加载 accessToken
+    /// 提问：网络请求异步到底应该返回什么？ -- 需要什么返回什么！
+    
+    /// 加载 token
+    ///
+    /// - Parameters:
+    ///   - code: 授权码
+    ///   - completion: 完成回调[是否成功]
+    func loadAccessToken(code: String, completion: @escaping (_ isSucccess: Bool) -> ()) {
+        
+        let urlStr = "https://api.weibo.com/oauth2/access_token"
+        
+        let params = [
+                        "client_id"    : SZAppKey,
+                        "client_secret": SZAppSecret,
+                        "grant_type"   : "authorization_code",
+                        "code"         : code,
+                        "redirect_uri" : SZRedirectURI
+                      ]
+        
+        // 发起请求
+        request(method: .POST, URLString: urlStr, parameters: params as [String : AnyObject]) { (json, isSuccess) in
+            
+//            print(json as Any)
+            
+            // 如果请求失败，对用户账户数据不会有任何影响
+            
+            // 直接用字典设置 userAccount
+            self.userAccount.yy_modelSet(with: (json as? [String: AnyObject]) ?? [:])
+            
+//            print(self.userAccount)
+            
+            self.userAccount.saveAccount()
+            
+            completion(true)
         }
     }
 }

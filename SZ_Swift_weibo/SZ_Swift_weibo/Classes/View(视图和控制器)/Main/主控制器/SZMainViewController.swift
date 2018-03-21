@@ -188,11 +188,14 @@ extension SZMainViewController {
     private func setupChildControllers() {
         
         // 0.获取沙盒的 JSON 路径
-        let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let jsonPath = (docDir as NSString).appendingPathComponent("main.json")
+//        let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+//        let filePath = (docDir as NSString).appendingPathComponent("main.json")
+        
+        // 使用封装好的方法获取路径
+        let filePath = String.getSandBoxFilePath(fileName: "main.json")
         
         // 加载 data
-        var data = NSData.init(contentsOfFile: jsonPath)
+        var data = NSData.init(contentsOfFile: filePath)
         
         // 判断data是否有内容，如果不存在，说明本地沙盒没有文件
         if (data == nil) {

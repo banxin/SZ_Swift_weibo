@@ -53,7 +53,7 @@ class SZStatusListViewModel {
         let since_id = isPullUp ? 0 : (statusList.first?.id ?? 0)
         
         // max_id ，上拉刷新，取出数组最后一条微博的 ID -- 如果不是上拉刷新，就取 0，上拉的话，取最后一条的 ID
-        var max_id = !isPullUp ? 0 : (statusList.last?.id ?? 0)
+        var max_id   = !isPullUp ? 0 : (statusList.last?.id ?? 0)
         
         // 解决下一页第一条与最后一条重复的问题
         max_id = max_id > 0 ? max_id - 1 : max_id

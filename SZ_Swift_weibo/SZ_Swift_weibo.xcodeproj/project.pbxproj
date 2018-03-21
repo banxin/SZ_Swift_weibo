@@ -13,6 +13,8 @@
 		A90119352060C37B0092214E /* SZOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90119342060C37B0092214E /* SZOAuthViewController.swift */; };
 		A90EB363205F531000103D30 /* SZNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90EB362205F531000103D30 /* SZNetworkManager.swift */; };
 		A90EB365205F694E00103D30 /* SZNetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90EB364205F694E00103D30 /* SZNetworkManager+Extension.swift */; };
+		A95CFA202061056300AECAE3 /* SZUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95CFA1F2061056300AECAE3 /* SZUserAccount.swift */; };
+		A95CFA22206113F600AECAE3 /* NSString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95CFA21206113F600AECAE3 /* NSString+Extension.swift */; };
 		A9DE6CD42058F62000EF2D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6CD32058F62000EF2D28 /* AppDelegate.swift */; };
 		A9DE6CDB2058F62000EF2D28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9DE6CDA2058F62000EF2D28 /* Assets.xcassets */; };
 		A9DE6CE92058F62000EF2D28 /* SZ_Swift_weiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6CE82058F62000EF2D28 /* SZ_Swift_weiboTests.swift */; };
@@ -68,6 +70,8 @@
 		A90119342060C37B0092214E /* SZOAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZOAuthViewController.swift; sourceTree = "<group>"; };
 		A90EB362205F531000103D30 /* SZNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZNetworkManager.swift; sourceTree = "<group>"; };
 		A90EB364205F694E00103D30 /* SZNetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SZNetworkManager+Extension.swift"; sourceTree = "<group>"; };
+		A95CFA1F2061056300AECAE3 /* SZUserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZUserAccount.swift; sourceTree = "<group>"; };
+		A95CFA21206113F600AECAE3 /* NSString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSString+Extension.swift"; sourceTree = "<group>"; };
 		A9DE6CD02058F62000EF2D28 /* SZ_Swift_weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SZ_Swift_weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9DE6CD32058F62000EF2D28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9DE6CDA2058F62000EF2D28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -153,10 +157,19 @@
 		A90EB361205F52E400103D30 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				A95CFA1E2061054800AECAE3 /* Model */,
 				A90EB362205F531000103D30 /* SZNetworkManager.swift */,
 				A90EB364205F694E00103D30 /* SZNetworkManager+Extension.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		A95CFA1E2061054800AECAE3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A95CFA1F2061056300AECAE3 /* SZUserAccount.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A9DE6CC72058F62000EF2D28 = {
@@ -341,6 +354,7 @@
 				A9DE6D1D2058FEBA00EF2D28 /* UIScreen+Extension.swift */,
 				A9DE6D1E2058FEBA00EF2D28 /* Bundle+Extentions.swift */,
 				A9DE6D1F2058FEBA00EF2D28 /* UIBarButtonItem+Extension.swift */,
+				A95CFA21206113F600AECAE3 /* NSString+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -598,9 +612,11 @@
 				A9DE6D4D2059155D00EF2D28 /* SZDiscoverViewController.swift in Sources */,
 				A90119352060C37B0092214E /* SZOAuthViewController.swift in Sources */,
 				A9DE6D2F2058FEBA00EF2D28 /* Bundle+Extentions.swift in Sources */,
+				A95CFA202061056300AECAE3 /* SZUserAccount.swift in Sources */,
 				A9DE6D4120590AB600EF2D28 /* UIAlertController+YTDefine.m in Sources */,
 				A9DE6D4B2059154D00EF2D28 /* SZMessageViewController.swift in Sources */,
 				A9DE6D2A2058FEBA00EF2D28 /* UIImageView+Extension.swift in Sources */,
+				A95CFA22206113F600AECAE3 /* NSString+Extension.swift in Sources */,
 				A9DE6D2B2058FEBA00EF2D28 /* UILabel+Extension.swift in Sources */,
 				A9DE6D492059153400EF2D28 /* SZProfileViewController.swift in Sources */,
 				A90EB365205F694E00103D30 /* SZNetworkManager+Extension.swift in Sources */,
