@@ -53,7 +53,7 @@ class SZHomeViewController: SZBaseViewController {
 //            print(list as Any)
 //        }
         
-        print("准备刷洗，最后一条 \(self.listViewModel.statusList.last?.text ?? "")")
+        print("准备刷洗，最后一条 \(self.listViewModel.statusList.last?.status.text ?? "")")
         
         // 4. 使用 viewModel 获取首页数据
         listViewModel.loadStatus(isPullUp: self.isPullUp) { (isSuccess, shouldRefresh) in
@@ -161,11 +161,14 @@ extension SZHomeViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // 1.取cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SZStatusCell
         
         // 2.设置cell
 //        cell.textLabel?.text = statusList[indexPath.row]
-        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
+//        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
+        
+        // 取出单条 视图模型 赋值 给 cell
+        cell.viewModel = listViewModel.statusList[indexPath.row]
         
         // 3.返回cell
         return cell
@@ -211,8 +214,18 @@ extension SZHomeViewController {
         // 使用自定义的 navigationItem 设置左侧按钮
         navItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriends))
         
+        // 取消分割线
+        tableView?.separatorStyle = .none
+        
         // 注册原型 cell
-        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+//        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView?.register(UINib(nibName: "SZStatusNormalCell", bundle: nil), forCellReuseIdentifier: cellId)
+        
+        /* 设置行高 */
+        // 自动行高
+        tableView?.rowHeight = UITableViewAutomaticDimension
+        // 预估行高
+        tableView?.estimatedRowHeight = 300
         
         setupTitle()
     }

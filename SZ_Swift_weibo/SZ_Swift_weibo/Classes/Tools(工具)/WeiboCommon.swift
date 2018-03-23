@@ -27,4 +27,15 @@ let SZUserShouldLoginNotification = "SZUserShouldLoginNotification"
 /// 用户登录成功
 let SZUserLoginSuccessNotification = "SZUserLoginSuccessNotification"
 
+// MARK: - 微博配图视图常量
+
+/// 配图视图，外侧间距
+let SZStatusPictureViewOutterMargin = CGFloat(12)
+/// 配图视图，内部图像视图间距
+let SZStatusPictureViewInnerMargin = CGFloat(3)
+/// 配图视图的宽度
+let SZStatusPictureViewWidth = UIScreen().screenWidth - (2 * SZStatusPictureViewOutterMargin)
+/// 每个 Item 默认的宽度
+let SZStatusPictureViewItemWidth = (SZStatusPictureViewWidth - (2 * SZStatusPictureViewInnerMargin)) / 3
+
 

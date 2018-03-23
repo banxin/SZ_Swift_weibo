@@ -10,7 +10,7 @@ import UIKit
 import YYModel
 
 /// 微博首页数据模型
-class SZStatus: NSObject {
+@objc public class SZStatus: NSObject {
     
     /*
      *** 在Swift4.0，需要使用 YYModel 进行字典转模型，必须在属性名前添加 @objc 关键字，否则将转换不成功
@@ -21,11 +21,51 @@ class SZStatus: NSObject {
     @objc var id: Int64 = 0
 
     /// 微博信息内容
-    @objc public var text: String?
+    @objc var text: String?
+    
+    /// 转发数
+    @objc var reposts_count: Int = 0
+    
+    /// 评论数
+    @objc var comments_count: Int = 0
+    
+    /// 表态数
+    @objc var attitudes_count: Int = 0
+    
+    /// 缩略图配图模型数组
+    @objc var pic_urls: [SZStatusPicture]?
+    
+    /// 微博的用户信息
+    @objc var user: SZUser?
     
     /// 重写 description 计算型属性
-    override var description: String {
+    override public var description: String {
         
         return yy_modelDescription()
     }
+    
+    /// 类函数 -> 告诉 YYModel 如果遇到数组类型的属性，数组中存放的对象是什么类！
+    /// NSArray 中保存对象的类型通常是 ‘id’ 类型
+    /// OC 中的泛型 是 Swift 推出后，苹果为了兼容 OC 增加的
+    /// 从运行时角度，仍然不知道数组中应该存放什么类型的对象
+    @objc public class func modelContainerPropertyGenericClass() -> [String: AnyClass] {
+        
+        return ["pic_urls": SZStatusPicture.self]
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

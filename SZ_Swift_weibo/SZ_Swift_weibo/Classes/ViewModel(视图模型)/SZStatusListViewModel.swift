@@ -28,8 +28,8 @@ private let maxPullupTryTimes = 3
 
 class SZStatusListViewModel {
     
-    /// 微博模型数组懒加载
-    lazy var statusList = [SZStatus]()
+    /// 微博视图模型数组懒加载
+    lazy var statusList = [SZStatusViewModel]()
     
     /// 上拉刷新错误次数
     private var pullupErrorTimes = 0
@@ -50,24 +50,50 @@ class SZStatusListViewModel {
         }
         
         // since_id ，下拉刷新，取出数组中第一条微博的 ID -- 如果是上拉刷新，就取 0，下拉的话，取第一条数据的 ID
-        let since_id = isPullUp ? 0 : (statusList.first?.id ?? 0)
+        let since_id = isPullUp ? 0 : (statusList.first?.status.id ?? 0)
         
         // max_id ，上拉刷新，取出数组最后一条微博的 ID -- 如果不是上拉刷新，就取 0，上拉的话，取最后一条的 ID
-        var max_id   = !isPullUp ? 0 : (statusList.last?.id ?? 0)
+        var max_id   = !isPullUp ? 0 : (statusList.last?.status.id ?? 0)
         
         // 解决下一页第一条与最后一条重复的问题
         max_id = max_id > 0 ? max_id - 1 : max_id
         
         SZNetworkManager.shared.statusList(since_id: since_id, max_id: max_id) { (list, isSuccess) in
             
-            // 1. 字典转模型
-            guard let array = NSArray.yy_modelArray(with: SZStatus.self, json: list ?? []) as? [SZStatus] else {
+            // 0. 判断网络请求是否成功
+            if !isSuccess {
                 
-                // 字典转模型失败
-                completion(isSuccess, false)
+                // 直接回调翻翻
+                completion(false, false)
                 
                 return
             }
+            
+            // 1. 字典转模型 （所有的第三方框架都支持嵌套的字典转模型）
+            
+            // 1> 定义结果可变数组
+            var array = [SZStatusViewModel]()
+            
+            // 2> 遍历服务器返回的字典数组，字典转模型
+            for dict in list ?? [] {
+                
+                // a) 创建微博模型 - 如果创建模型失败，继续后续的遍历
+                guard let model = SZStatus.yy_model(with: dict) else {
+                    
+                    continue
+                }
+                
+                // b) 将 视图模型 添加到数组
+                array.append(SZStatusViewModel.init(model: model))
+            }
+            
+//            guard let array = NSArray.yy_modelArray(with: SZStatus.self, json: list ?? []) as? [SZStatus] else {
+//
+//                // 字典转模型失败
+//                completion(isSuccess, false)
+//
+//                return
+//            }
             
             // 2. 拼接数据
             // 下拉刷新，应该将 结果数组拼接在数组前面

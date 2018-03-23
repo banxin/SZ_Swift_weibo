@@ -20,6 +20,15 @@
 		A95CFA22206113F600AECAE3 /* NSString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95CFA21206113F600AECAE3 /* NSString+Extension.swift */; };
 		A95CFA25206239B700AECAE3 /* SZTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95CFA24206239B700AECAE3 /* SZTitleButton.swift */; };
 		A98607D720626FB3001525FE /* SZNewFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98607D620626FB3001525FE /* SZNewFeatureView.xib */; };
+		A9B8409A2063791C00283F79 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B840992063791C00283F79 /* UIImage+Extension.swift */; };
+		A9B8409D206381FE00283F79 /* SZStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B8409C206381FE00283F79 /* SZStatusCell.swift */; };
+		A9B8409F2063822400283F79 /* SZStatusNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9B8409E2063822400283F79 /* SZStatusNormalCell.xib */; };
+		A9B840A12063C98B00283F79 /* SZUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B840A02063C98B00283F79 /* SZUser.swift */; };
+		A9B840A32063CED300283F79 /* SZStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B840A22063CED300283F79 /* SZStatusViewModel.swift */; };
+		A9B840A72064974D00283F79 /* UIImageView+SDWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B840A62064974D00283F79 /* UIImageView+SDWebImage.swift */; };
+		A9B840A92064C98900283F79 /* SZStatusToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B840A82064C98900283F79 /* SZStatusToolBar.swift */; };
+		A9B840AB2064E41B00283F79 /* SZStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B840AA2064E41B00283F79 /* SZStatusPictureView.swift */; };
+		A9B840AD2064E9B200283F79 /* SZStatusPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B840AC2064E9B200283F79 /* SZStatusPicture.swift */; };
 		A9DE6CD42058F62000EF2D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6CD32058F62000EF2D28 /* AppDelegate.swift */; };
 		A9DE6CDB2058F62000EF2D28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9DE6CDA2058F62000EF2D28 /* Assets.xcassets */; };
 		A9DE6CE92058F62000EF2D28 /* SZ_Swift_weiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DE6CE82058F62000EF2D28 /* SZ_Swift_weiboTests.swift */; };
@@ -82,6 +91,15 @@
 		A95CFA21206113F600AECAE3 /* NSString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSString+Extension.swift"; sourceTree = "<group>"; };
 		A95CFA24206239B700AECAE3 /* SZTitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZTitleButton.swift; sourceTree = "<group>"; };
 		A98607D620626FB3001525FE /* SZNewFeatureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SZNewFeatureView.xib; sourceTree = "<group>"; };
+		A9B840992063791C00283F79 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		A9B8409C206381FE00283F79 /* SZStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZStatusCell.swift; sourceTree = "<group>"; };
+		A9B8409E2063822400283F79 /* SZStatusNormalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SZStatusNormalCell.xib; sourceTree = "<group>"; };
+		A9B840A02063C98B00283F79 /* SZUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZUser.swift; sourceTree = "<group>"; };
+		A9B840A22063CED300283F79 /* SZStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZStatusViewModel.swift; sourceTree = "<group>"; };
+		A9B840A62064974D00283F79 /* UIImageView+SDWebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+SDWebImage.swift"; sourceTree = "<group>"; };
+		A9B840A82064C98900283F79 /* SZStatusToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZStatusToolBar.swift; sourceTree = "<group>"; };
+		A9B840AA2064E41B00283F79 /* SZStatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZStatusPictureView.swift; sourceTree = "<group>"; };
+		A9B840AC2064E9B200283F79 /* SZStatusPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZStatusPicture.swift; sourceTree = "<group>"; };
 		A9DE6CD02058F62000EF2D28 /* SZ_Swift_weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SZ_Swift_weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9DE6CD32058F62000EF2D28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9DE6CDA2058F62000EF2D28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -201,6 +219,17 @@
 			path = DefineView;
 			sourceTree = "<group>";
 		};
+		A9B8409B20637F2200283F79 /* StatusCell */ = {
+			isa = PBXGroup;
+			children = (
+				A9B8409C206381FE00283F79 /* SZStatusCell.swift */,
+				A9B8409E2063822400283F79 /* SZStatusNormalCell.xib */,
+				A9B840A82064C98900283F79 /* SZStatusToolBar.swift */,
+				A9B840AA2064E41B00283F79 /* SZStatusPictureView.swift */,
+			);
+			path = StatusCell;
+			sourceTree = "<group>";
+		};
 		A9DE6CC72058F62000EF2D28 = {
 			isa = PBXGroup;
 			children = (
@@ -279,8 +308,9 @@
 		A9DE6D032058FEBA00EF2D28 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				A95CFA232062399E00AECAE3 /* DefineView */,
 				A9DE6D4E2059156B00EF2D28 /* SZHomeViewController.swift */,
+				A9B8409B20637F2200283F79 /* StatusCell */,
+				A95CFA232062399E00AECAE3 /* DefineView */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -352,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				A901192F205F9B500092214E /* SZStatusListViewModel.swift */,
+				A9B840A22063CED300283F79 /* SZStatusViewModel.swift */,
 			);
 			path = "ViewModel(视图模型)";
 			sourceTree = "<group>";
@@ -360,6 +391,8 @@
 			isa = PBXGroup;
 			children = (
 				A901192D205F97720092214E /* SZStatus.swift */,
+				A9B840A02063C98B00283F79 /* SZUser.swift */,
+				A9B840AC2064E9B200283F79 /* SZStatusPicture.swift */,
 			);
 			path = "Model(模型)";
 			sourceTree = "<group>";
@@ -386,6 +419,8 @@
 				A9DE6D1E2058FEBA00EF2D28 /* Bundle+Extentions.swift */,
 				A9DE6D1F2058FEBA00EF2D28 /* UIBarButtonItem+Extension.swift */,
 				A95CFA21206113F600AECAE3 /* NSString+Extension.swift */,
+				A9B840992063791C00283F79 /* UIImage+Extension.swift */,
+				A9B840A62064974D00283F79 /* UIImageView+SDWebImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -534,6 +569,7 @@
 			files = (
 				A9DE6D282058FEBA00EF2D28 /* main.json in Resources */,
 				A90D1E4120625CCE00E2CF0F /* SZWelcomeView.xib in Resources */,
+				A9B8409F2063822400283F79 /* SZStatusNormalCell.xib in Resources */,
 				A9DE6CDB2058F62000EF2D28 /* Assets.xcassets in Resources */,
 				A98607D720626FB3001525FE /* SZNewFeatureView.xib in Resources */,
 			);
@@ -630,7 +666,9 @@
 			files = (
 				A901192E205F97720092214E /* SZStatus.swift in Sources */,
 				A9DE6D54205BB3D200EF2D28 /* main.json in Sources */,
+				A9B840A32063CED300283F79 /* SZStatusViewModel.swift in Sources */,
 				A90D1E3D20624C2000E2CF0F /* SZWelcomeView.swift in Sources */,
+				A9B840A12063C98B00283F79 /* SZUser.swift in Sources */,
 				A9DE6D3F20590AB600EF2D28 /* UIAlertAction+YTDefine.m in Sources */,
 				A90EB363205F531000103D30 /* SZNetworkManager.swift in Sources */,
 				A9DE6D452059146000EF2D28 /* SZNavigationController.swift in Sources */,
@@ -639,6 +677,7 @@
 				A95CFA25206239B700AECAE3 /* SZTitleButton.swift in Sources */,
 				A9DE6D2C2058FEBA00EF2D28 /* UIButton+Extension.swift in Sources */,
 				A9DE6D4020590AB600EF2D28 /* YTAlertController.m in Sources */,
+				A9B840A92064C98900283F79 /* SZStatusToolBar.swift in Sources */,
 				A9DE6D53205A09C300EF2D28 /* SZVistorView.swift in Sources */,
 				A9011930205F9B500092214E /* SZStatusListViewModel.swift in Sources */,
 				A90D1E3F20624C7300E2CF0F /* SZNewFeatureView.swift in Sources */,
@@ -648,15 +687,20 @@
 				A9DE6D4D2059155D00EF2D28 /* SZDiscoverViewController.swift in Sources */,
 				A90119352060C37B0092214E /* SZOAuthViewController.swift in Sources */,
 				A9DE6D2F2058FEBA00EF2D28 /* Bundle+Extentions.swift in Sources */,
+				A9B8409D206381FE00283F79 /* SZStatusCell.swift in Sources */,
 				A95CFA202061056300AECAE3 /* SZUserAccount.swift in Sources */,
 				A9DE6D4120590AB600EF2D28 /* UIAlertController+YTDefine.m in Sources */,
 				A9DE6D4B2059154D00EF2D28 /* SZMessageViewController.swift in Sources */,
 				A9DE6D2A2058FEBA00EF2D28 /* UIImageView+Extension.swift in Sources */,
+				A9B840AB2064E41B00283F79 /* SZStatusPictureView.swift in Sources */,
 				A95CFA22206113F600AECAE3 /* NSString+Extension.swift in Sources */,
+				A9B840AD2064E9B200283F79 /* SZStatusPicture.swift in Sources */,
 				A9DE6D2B2058FEBA00EF2D28 /* UILabel+Extension.swift in Sources */,
 				A9DE6D492059153400EF2D28 /* SZProfileViewController.swift in Sources */,
 				A90EB365205F694E00103D30 /* SZNetworkManager+Extension.swift in Sources */,
+				A9B840A72064974D00283F79 /* UIImageView+SDWebImage.swift in Sources */,
 				A9DE6D2E2058FEBA00EF2D28 /* UIScreen+Extension.swift in Sources */,
+				A9B8409A2063791C00283F79 /* UIImage+Extension.swift in Sources */,
 				A9DE6D2D2058FEBA00EF2D28 /* UIColor+Extensions.swift in Sources */,
 				A9DE6D3E20590AB600EF2D28 /* UIView+YTAddClickedEvent.m in Sources */,
 				A9DE6D512059455200EF2D28 /* SZDemoViewController.swift in Sources */,
