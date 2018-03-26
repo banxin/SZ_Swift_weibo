@@ -49,6 +49,17 @@ class SZStatusViewModel: CustomStringConvertible {
     /// 配图视图大小
     var pictureViewSize = CGSize()
     
+    /// 如果是被转发的微博，原创微博一定没有图
+    var picUrls: [SZStatusPicture]? {
+        
+        // 如果有被转发的微博，那返回被转发微博的配图
+        // 如果没有被转发的微博，返回原创微博的配图
+        return status.retweeted_status?.pic_urls ?? status.pic_urls
+    }
+    
+    /// 被转发微博的文字
+    var retweetedText: String?
+    
     /// 构造函数
     ///
     /// - Parameter model: 微博模型
@@ -96,8 +107,17 @@ class SZStatusViewModel: CustomStringConvertible {
         commentStr = countString(count: status.comments_count, defaultStr: "评论")
         likeStr = countString(count: status.attitudes_count, defaultStr: "赞")
         
-        // 计算配图视图大小
-        pictureViewSize = calcPictureViewSize(count: status.pic_urls?.count)
+        // 计算配图视图大小（有原创的计算原创的，有转发的计算转发的）
+//        pictureViewSize = calcPictureViewSize(count: status.pic_urls?.count)
+        pictureViewSize = calcPictureViewSize(count: picUrls?.count)
+        
+        // 设置被转发微博的文字 - 
+        retweetedText = "@" + (status.retweeted_status?.user?.screen_name ?? "")
+        
+        retweetedText = retweetedText! + ":" + (status.retweeted_status?.text ?? "")
+        
+        
+        
     }
     
     /// 视图模型 描述信息
@@ -106,6 +126,19 @@ class SZStatusViewModel: CustomStringConvertible {
         return status.yy_modelDescription()
     }
 
+    /// 使用单个图像 更新单个视图的大小
+    ///
+    /// - Parameter image: 网络缓存的单张图像
+    func updateSimgleImageSize(image: UIImage) {
+        
+        var size = image.size
+        
+        // 注意，尺寸需要增加顶部的 12 ，便于布局
+        size.height += SZStatusPictureViewOutterMargin
+        
+        pictureViewSize = size
+    }
+    
     /// 给定一个数字，返回对应的描述结果
     ///
     /// - Parameters:

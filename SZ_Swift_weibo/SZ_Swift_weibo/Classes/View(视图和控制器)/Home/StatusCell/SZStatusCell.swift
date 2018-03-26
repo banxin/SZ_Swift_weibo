@@ -28,11 +28,13 @@ class SZStatusCell: UITableViewCell {
             /// 底部工具栏
             toolBar.viewModel = viewModel
             
-            // 设置配图视图的高度
-            pictureView.heightCons.constant = viewModel?.pictureViewSize.height ?? 0
-            // 设置配图视图的 URL 数据
-            pictureView.urls = viewModel?.status.pic_urls
+            // 设置配图视图的高度 - 改为使用视图模型传入，pictureView 内部处理
+            //            pictureView.heightCons.constant = viewModel?.pictureViewSize.height ?? 0
             
+            // 设置配图视图模型
+            pictureView.viewModel = viewModel
+            
+            // 设置配图视图的 URL 数据
 //            // 测试 4 张图片
 //            if viewModel!.status.pic_urls!.count > 4 {
 //
@@ -48,6 +50,13 @@ class SZStatusCell: UITableViewCell {
 //                // 设置配图视图的 URL 数据
 //                pictureView.urls = viewModel?.status.pic_urls
 //            }
+            
+            // 设置配图（包含了被转发和原创）
+//            pictureView.urls = viewModel?.status.pic_urls
+            pictureView.urls = viewModel?.picUrls
+            
+            // 设置被转发微博的文字
+            retweetedLabel?.text = viewModel?.retweetedText
         }
     }
 
@@ -78,15 +87,17 @@ class SZStatusCell: UITableViewCell {
     /// 配图视图
     @IBOutlet weak var pictureView: SZStatusPictureView!
     
+    /// 被转发微博的文字 - 原创微博没有该控件，一定要用 '？' 可选
+    @IBOutlet weak var retweetedLabel: UILabel?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
+        
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 }
 

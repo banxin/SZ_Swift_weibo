@@ -10,6 +10,40 @@ import Foundation
 
 class SZStatusPictureView: UIView {
     
+    var viewModel: SZStatusViewModel? {
+        
+        didSet {
+            
+            calcViewSize()
+        }
+    }
+    
+    /// 根据视图模型的配图视图大小，调整显示内容
+    private func calcViewSize() {
+        
+        // 处理宽度
+        // 1> 单图，根据配图视图的大小，需改 subViews[0] 的宽高
+        if viewModel?.picUrls?.count == 1 {
+            
+            let viewSize = viewModel?.pictureViewSize ?? CGSize()
+            
+            // a) 获取第 0 个图像视图
+            let v = subviews[0]
+            
+            v.frame = CGRect(x: 0, y: SZStatusPictureViewOutterMargin, width: viewSize.width, height: viewSize.height - SZStatusPictureViewOutterMargin)
+            
+        } else {
+            
+            // 2> 多图 或 无图，恢复 subViews[0] 的宽高，保证 九宫格 布局的完整
+            let v = subviews[0]
+            
+            v.frame = CGRect(x: 0, y: SZStatusPictureViewOutterMargin, width: SZStatusPictureViewItemWidth, height: SZStatusPictureViewItemWidth)
+        }
+        
+        // 修改高度约束
+        heightCons.constant = viewModel?.pictureViewSize.height ?? 0 
+    }
+    
     /// 配图视图数组
     var urls: [SZStatusPicture]? {
         
@@ -77,7 +111,7 @@ extension SZStatusPictureView {
             let iv = UIImageView.init()
             
             // 设置 contentMode
-            iv.contentMode = .scaleAspectFit
+            iv.contentMode = .scaleAspectFill
             iv.clipsToBounds = true
             
             // 行 -> Y
@@ -86,9 +120,9 @@ extension SZStatusPictureView {
             // 列 -> X
             let col = CGFloat(i % count)
             
-            /// x轴 偏移量
+            // x轴 偏移量
             let xOffset = col * (SZStatusPictureViewItemWidth + SZStatusPictureViewInnerMargin)
-            /// y轴 偏移量
+            // y轴 偏移量
             let yOffset = row * (SZStatusPictureViewItemWidth + SZStatusPictureViewInnerMargin)
             
             iv.frame = rect.offsetBy(dx: xOffset, dy: yOffset)

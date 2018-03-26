@@ -9,7 +9,12 @@
 import UIKit
 
 // 定义全局常量，尽量使用private修饰，否则到处都可以访问
-private let cellId = "cellId"
+
+/// 原创微博 可重用 cell ID
+private let originalCellId = "originalCellId"
+
+/// 转发微博 可重用 cell ID
+private let retweetedCellId = "retweetedCellId"
 
 class SZHomeViewController: SZBaseViewController {
 
@@ -160,15 +165,19 @@ extension SZHomeViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        // 0. 取出视图模型，根据视图模型判断可重用 Cell
+        let vm = listViewModel.statusList[indexPath.row]
+        
+        // 获取对应的 cellID
+        let cellId = (vm.status.retweeted_status != nil) ? retweetedCellId : originalCellId
+        
         // 1.取cell
+        // FIXME: - 修改cellId
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SZStatusCell
         
-        // 2.设置cell
-//        cell.textLabel?.text = statusList[indexPath.row]
-//        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
-        
+        // 2.设置cell        
         // 取出单条 视图模型 赋值 给 cell
-        cell.viewModel = listViewModel.statusList[indexPath.row]
+        cell.viewModel = vm
         
         // 3.返回cell
         return cell
@@ -219,7 +228,8 @@ extension SZHomeViewController {
         
         // 注册原型 cell
 //        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        tableView?.register(UINib(nibName: "SZStatusNormalCell", bundle: nil), forCellReuseIdentifier: cellId)
+        tableView?.register(UINib(nibName: "SZStatusNormalCell", bundle: nil), forCellReuseIdentifier: originalCellId)
+        tableView?.register(UINib(nibName: "SZStatusRetweetedCell", bundle: nil), forCellReuseIdentifier: retweetedCellId)
         
         /* 设置行高 */
         // 自动行高

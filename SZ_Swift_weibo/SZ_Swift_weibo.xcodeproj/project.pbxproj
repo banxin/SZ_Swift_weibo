@@ -11,6 +11,7 @@
 		A9011930205F9B500092214E /* SZStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A901192F205F9B500092214E /* SZStatusListViewModel.swift */; };
 		A90119322060BABA0092214E /* WeiboCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90119312060BABA0092214E /* WeiboCommon.swift */; };
 		A90119352060C37B0092214E /* SZOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90119342060C37B0092214E /* SZOAuthViewController.swift */; };
+		A901342F20679B71006FF62E /* SZStatusRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A901342E20679B71006FF62E /* SZStatusRetweetedCell.xib */; };
 		A90D1E3D20624C2000E2CF0F /* SZWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90D1E3C20624C2000E2CF0F /* SZWelcomeView.swift */; };
 		A90D1E3F20624C7300E2CF0F /* SZNewFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90D1E3E20624C7300E2CF0F /* SZNewFeatureView.swift */; };
 		A90D1E4120625CCE00E2CF0F /* SZWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A90D1E4020625CCE00E2CF0F /* SZWelcomeView.xib */; };
@@ -82,6 +83,7 @@
 		A901192F205F9B500092214E /* SZStatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZStatusListViewModel.swift; sourceTree = "<group>"; };
 		A90119312060BABA0092214E /* WeiboCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeiboCommon.swift; sourceTree = "<group>"; };
 		A90119342060C37B0092214E /* SZOAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZOAuthViewController.swift; sourceTree = "<group>"; };
+		A901342E20679B71006FF62E /* SZStatusRetweetedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SZStatusRetweetedCell.xib; sourceTree = "<group>"; };
 		A90D1E3C20624C2000E2CF0F /* SZWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZWelcomeView.swift; sourceTree = "<group>"; };
 		A90D1E3E20624C7300E2CF0F /* SZNewFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZNewFeatureView.swift; sourceTree = "<group>"; };
 		A90D1E4020625CCE00E2CF0F /* SZWelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SZWelcomeView.xib; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				A9B8409E2063822400283F79 /* SZStatusNormalCell.xib */,
 				A9B840A82064C98900283F79 /* SZStatusToolBar.swift */,
 				A9B840AA2064E41B00283F79 /* SZStatusPictureView.swift */,
+				A901342E20679B71006FF62E /* SZStatusRetweetedCell.xib */,
 			);
 			path = StatusCell;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				A90D1E4120625CCE00E2CF0F /* SZWelcomeView.xib in Resources */,
 				A9B8409F2063822400283F79 /* SZStatusNormalCell.xib in Resources */,
 				A9DE6CDB2058F62000EF2D28 /* Assets.xcassets in Resources */,
+				A901342F20679B71006FF62E /* SZStatusRetweetedCell.xib in Resources */,
 				A98607D720626FB3001525FE /* SZNewFeatureView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -854,6 +858,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SZ_Swift_weibo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -872,6 +877,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SZ_Swift_weibo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

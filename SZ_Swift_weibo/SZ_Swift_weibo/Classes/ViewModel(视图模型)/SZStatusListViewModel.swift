@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SDWebImage
 
 /// 微博首页数据列表视图模型
 
@@ -75,7 +76,7 @@ class SZStatusListViewModel {
             var array = [SZStatusViewModel]()
             
             // 2> 遍历服务器返回的字典数组，字典转模型
-            for dict in list ?? [] {
+            for dict in list ?? [] { // 遍历结束后，图片路径就已经有了
                 
                 // a) 创建微博模型 - 如果创建模型失败，继续后续的遍历
                 guard let model = SZStatus.yy_model(with: dict) else {
@@ -122,12 +123,92 @@ class SZStatusListViewModel {
                 
             } else {
                 
-                // 4. 完成回调
-                completion(isSuccess, true)
+                // 缓存本次下载微博数据数组中的单张图像
+                self.catchSimgleImage(list: array, finished: completion)
+                
+                // 4. 完成回调（真正有数据的回调）- 缓存完单张图像，并且修改过配图视图的大小之后，再回调，移到缓存单张图片调度组完成后
+//                completion(isSuccess, true)
             }
         }
     }
+    
+    /// 缓存本次下载微博数据数组中的单张图像
+    ///
+    /// - *** 应该缓存完单张图像，并且修改过配图视图的大小之后，再回调，才能够保证表格等比例显示单张图像
+    ///
+    /// - Parameter list: 本次下载的视图模型数组
+    private func catchSimgleImage(list: [SZStatusViewModel], finished: @escaping (_ isSuccess: Bool, _ shouldRefresh: Bool) -> ()) {
+        
+        /// 调度组
+        let group = DispatchGroup()
+        
+        /// 记录数据长度
+        var length = 0
+        
+        // 遍历数组，查找微博数据中有单张图像的，进行缓存
+        // option + command + 左，折叠代码
+        for vm in list {
+            
+            // 1> 判断图像数量
+            if vm.picUrls?.count != 1 {
+                
+                continue
+            }
+            
+            // 执行到此，数组中有且只有一张图片
+            // 2> 获取 图像模型
+            guard let pic = vm.picUrls?[0].thumbnail_pic,
+                let url = URL.init(string: pic) else {
+                    
+                continue
+            }
+            
+            // 下载图像
+            // 1) downloadImage 是 SDWebImage 的核心方法
+            // 2) 图像下载完成后，会自动保存在沙盒中，文件路径是 url 的 md5
+            // 3) 如果沙盒中已经存在缓存的图像，后续使用 SD 通过 URL 加载图像，都会加载本地沙盒的图像
+            // 4) 不会发起网络请求，同时，回调方法，同样会调用！
+            // 5) 方法还是同样的方法，调用还是同样的调用，不过内部不会再发起网络请求！
+            // *** 如果要缓存的图像，累计过大，要找后台协调对图像的处理
+            
+            // A> 入组
+            group.enter()
+            
+            SDWebImageManager.shared().imageDownloader?.downloadImage(with: url, options: [], progress: nil, completed: { (image, _, _, _) in
+                
+                // 将图像转换成 二进制数据
+                if let image = image,
+                    let data = UIImagePNGRepresentation(image) {
+                    
+                    // NSData 是 length
+                    // 监听下图片的大小
+                    length += data.count
+                    
+                    // 图像缓存成功，更新配图视图的大小
+                    vm.updateSimgleImageSize(image: image)
+                }
+                
+                // B> 出组 - 放在回调的最后一句
+                group.leave()
+            })
+        }
+        
+        /// 监听调度组情况
+        group.notify(queue: DispatchQueue.main) {
+            
+            print("图片缓存完成 -> \(length / 1024)K")
+            
+            finished(true, true)
+        }
+    }
 }
+
+
+
+
+
+
+
 
 
 

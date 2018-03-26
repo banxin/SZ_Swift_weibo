@@ -38,6 +38,9 @@ import YYModel
     /// 微博的用户信息
     @objc var user: SZUser?
     
+    /// 被转发的原创微博
+    @objc var retweeted_status: SZStatus?
+    
     /// 重写 description 计算型属性
     override public var description: String {
         
