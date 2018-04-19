@@ -60,6 +60,9 @@ class SZStatusViewModel: CustomStringConvertible {
     /// 被转发微博的文字
     var retweetedText: String?
     
+    /// 行高
+    var rowHeight: CGFloat?
+    
     /// 构造函数
     ///
     /// - Parameter model: 微博模型
@@ -116,8 +119,8 @@ class SZStatusViewModel: CustomStringConvertible {
         
         retweetedText = retweetedText! + ":" + (status.retweeted_status?.text ?? "")
         
-        
-        
+        // 计算行高
+        updateRowHeight()
     }
     
     /// 视图模型 描述信息
@@ -128,15 +131,102 @@ class SZStatusViewModel: CustomStringConvertible {
 
     /// 使用单个图像 更新单个视图的大小
     ///
+    /// 新浪针对单张图片，都是缩略图，但是偶尔会出现一张特别大的图 7000 * 9000
+    /// 新浪微博，为了鼓励原创，支持长微博，长图，但是有的时候有特别长的微博，长到宽度只有 1 个点
     /// - Parameter image: 网络缓存的单张图像
     func updateSimgleImageSize(image: UIImage) {
         
         var size = image.size
         
+        let maxWidth: CGFloat = 300
+        let minWidth: CGFloat = 40
+        
+        // 过宽图像处理
+        if size.width > maxWidth {
+            
+            // 设置最大宽度
+            size.width = maxWidth
+            
+            // 等比例调整高度
+            // 要特殊处理，不然高度太大，影响体验
+            size.height = size.width * image.size.height / image.size.width / 4
+        }
+        
+        // 过窄的图像处理
+        if size.width < minWidth {
+            
+            size.width = minWidth
+            // 等比例调整高度
+            size.height = size.width * image.size.height / image.size.width
+        }
+        
         // 注意，尺寸需要增加顶部的 12 ，便于布局
         size.height += SZStatusPictureViewOutterMargin
         
+        // 重新设置配图视图大小
         pictureViewSize = size
+        
+        // 更新行高
+        updateRowHeight()
+    }
+    
+    /// 根据当前的视图模型内容计算行高
+    func updateRowHeight() {
+        
+        // 原创微博：顶部分隔视图（12）+ 间距（12）+ 图像的高度（34）+ 间距（12）+ 正文高度（需要计算）+ 配图视图高度（需要计算）+ 间距（12）+ 底部视图（35）
+        // 转发微博：顶部分隔视图（12）+ 间距（12）+ 图像的高度（34）+ 间距（12）+ 正文高度（需要计算）+ 间距（12）+ 间距（12）+ 转发文本的高度（需计算）+ 配图视图高度（需要计算）+ 间距（12）+ 底部视图（35）
+        
+        let margin: CGFloat = 12
+        let iconHeight: CGFloat = 34
+        let toolBarHeight: CGFloat = 35
+        
+        let viewSize = CGSize(width: UIScreen.main.screenWidth - 2 * margin, height: CGFloat(MAXFLOAT))
+        let originFont = UIFont.systemFont(ofSize: 15)
+        let retweetFont = UIFont.systemFont(ofSize: 14)
+        
+        var height: CGFloat = 0
+        // 1. 计算顶部位置
+        height = 2 * margin + iconHeight + margin
+        
+        // 2. 正文高度
+        if let text = status.text {
+            
+            /*
+             1> 预期尺寸，宽度固定，高度尽量大
+             2> 选项，换行文本，统一使用 usesLineFragmentOrigin
+             3> attributes 指定字体字典
+             */
+            height += (text as NSString).boundingRect(with: viewSize,
+                                            options: [.usesLineFragmentOrigin],
+                                            attributes: [NSAttributedStringKey.font: originFont],
+                                            context: nil).height
+        }
+        
+        // 3. 判断是否转发微博
+        if status.retweeted_status != nil {
+            
+            height += 2 * margin
+            
+            // 转发文本的高度 - 一定用 retweetedText ，拼接了 @用户名：微博文字
+            if let text = retweetedText {
+                
+                height += (text as NSString).boundingRect(with: viewSize,
+                                                          options: [.usesLineFragmentOrigin],
+                                                          attributes: [NSAttributedStringKey.font: retweetFont],
+                                                          context: nil).height
+            }
+        }
+        
+        // 4. 配图视图高度
+        height += pictureViewSize.height
+        
+        height += margin
+        
+        // 5. 底部工具栏
+        height += toolBarHeight
+        
+        // 6. 使用属性记录
+        rowHeight = height
     }
     
     /// 给定一个数字，返回对应的描述结果

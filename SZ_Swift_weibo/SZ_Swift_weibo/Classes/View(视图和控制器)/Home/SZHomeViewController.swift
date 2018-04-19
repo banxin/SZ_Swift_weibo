@@ -171,8 +171,8 @@ extension SZHomeViewController {
         // 获取对应的 cellID
         let cellId = (vm.status.retweeted_status != nil) ? retweetedCellId : originalCellId
         
-        // 1.取cell
-        // FIXME: - 修改cellId
+        // 1.取cell - 本身会调用代理方法（如果有）
+        // 如果没有，找到 cell ，按照自动布局的规则，从上向下计算，找到向下的约束，从而计算动态行高
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SZStatusCell
         
         // 2.设置cell        
@@ -181,6 +181,17 @@ extension SZHomeViewController {
         
         // 3.返回cell
         return cell
+    }
+    
+    // 没有 override 在 2.0 没有问题，但在 3.0 意味着 父类不提供该方法，这个方法不会被调用！
+    // *** 父类必须实现该代理方法，子类才能够重写！3.0 开始，必须如此
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        // 1. 根据 indexPath 获取视图模型
+        let vm = listViewModel.statusList[indexPath.row]
+        
+        // 2. 返回计算好的行高
+        return vm.rowHeight ?? 0
     }
 }
 
@@ -232,8 +243,8 @@ extension SZHomeViewController {
         tableView?.register(UINib(nibName: "SZStatusRetweetedCell", bundle: nil), forCellReuseIdentifier: retweetedCellId)
         
         /* 设置行高 */
-        // 自动行高
-        tableView?.rowHeight = UITableViewAutomaticDimension
+        // 自动行高 - 缓存行高，取消自动行高
+//        tableView?.rowHeight = UITableViewAutomaticDimension
         // 预估行高
         tableView?.estimatedRowHeight = 300
         
